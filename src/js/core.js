@@ -174,7 +174,7 @@ export function dialogFunc($, window, document) {
             _createDialogDOM: function (dialogType) {
                 var self = this;
 
-                self.$dialog = $('<div class="dialog dialog-open ' + self.settings.dialogClass + '" data-style="' + self.dislogStyle + '"></div>');
+                self.$dialog = $('<div class="jdialog dialog-open ' + self.settings.dialogClass + '" data-style="' + self.dislogStyle + '"></div>');
                 self.$dialogOverlay = $('<div class="dialog-overlay"></div>');
                 self.$dialogContent = $('<div class="dialog-content"></div>');
                 self.$dialogTitle = $('<div class="dialog-content-hd"><h3 class="dialog-content-title">' + self.settings.titleText + '</h3></div>');
@@ -186,10 +186,7 @@ export function dialogFunc($, window, document) {
 
                 switch (dialogType) {
                     case 'alert':
-                        self._createDialogAlertTypeDOM(self, dialogType);                        
-                        break;
-                    case 'confirm':
-                        self._createDialogConfirmTypeDOM(self, dialogType);                       
+                        self._createDialogAlertTypeDOM(self, dialogType);
                         break;
                     case 'toast':
                         self._createDialogToastTypeDOM(self, dialogType);
@@ -225,41 +222,7 @@ export function dialogFunc($, window, document) {
             },
             //alert型显示
             _createDialogAlertTypeDOM(self, alertType) {
-               // 添加 alert 类型弹窗标识
-               self.$dialog.addClass('dialog-modal');
-
-               // 显示遮罩层
-               if (self.settings.overlayShow) {
-                   self.$dialog.append(self.$dialogOverlay);
-               }
-               // 显示标题
-               if (self.settings.titleShow) {
-                   self.$dialogContent.append(self.$dialogTitle);
-               }
-               // 显示关闭按钮
-               if (self.settings.closeBtnShow) {
-                   self.$dialogTitle.append(self.$closeBtn);
-               }
-
-               self.$dialogContentBd.html(self.settings.content);
-               self.$dialogContentFt.append(self.$confirmBtn);
-               self.$dialogContent.append(self.$dialogContentBd).append(self.$dialogContentFt);
-               self.$dialog.append(self.$dialogContent);
-               $('body').append(self.$dialog);
-
-               if (self.settings.bodyNoScroll) {
-                   $('body').addClass('body-no-scroll');
-               }
-
-               // 设置弹窗提示内容最大高度
-               if (self.settings.contentScroll) {
-                   self._setDialogContentHeight();
-               }
-
-            },
-            //confirm型显示
-            _createDialogConfirmTypeDOM(self, confirmType) {
-                // 添加 confirm 类型弹窗标识
+                // 添加 alert 类型弹窗标识
                 self.$dialog.addClass('dialog-modal');
 
                 // 显示遮罩层
@@ -274,8 +237,6 @@ export function dialogFunc($, window, document) {
                 if (self.settings.closeBtnShow) {
                     self.$dialogTitle.append(self.$closeBtn);
                 }
-
-                // 按钮: 如果有设置自定义按钮组, 则用自定义按钮组; 否则用默认的"确定"与"取消"按钮
                 if (self.settings.buttons.length) {
                     var buttonGroupHtml = '';
                     $.each(self.settings.buttons, function (index, item) {
@@ -283,22 +244,26 @@ export function dialogFunc($, window, document) {
 
                     });
                     self.$dialogContentFt.append(buttonGroupHtml).addClass(self.settings.buttonStyle);
-                } else {
-                    self.$dialogContentFt.append(self.$cancelBtn).append(self.$confirmBtn).addClass(self.settings.buttonStyle);
+                }
+                if (self.settings.buttonTextCancel) {
+                    self.$dialogContentFt.append(self.$cancelBtn).addClass(self.settings.buttonStyle);
+                }
+                if (self.settings.buttonTextConfirm) {
+                    self.$dialogContentFt.append(self.$confirmBtn).addClass(self.settings.buttonStyle);
                 }
 
-                self.$dialogContentBd.html(self.settings.content);
+                self.$dialogContentBd.append(self.settings.content);
                 self.$dialogContent.append(self.$dialogContentBd).append(self.$dialogContentFt);
                 self.$dialog.append(self.$dialogContent);
                 $('body').append(self.$dialog);
 
+                if (self.settings.bodyNoScroll) {
+                    $('body').addClass('body-no-scroll');
+                }
+
                 // 设置弹窗提示内容最大高度
                 if (self.settings.contentScroll) {
                     self._setDialogContentHeight();
-                }
-
-                if (self.settings.bodyNoScroll) {
-                    $('body').addClass('body-no-scroll');
                 }
 
             },
@@ -313,54 +278,54 @@ export function dialogFunc($, window, document) {
                 }
 
                 // 弹窗内容 HTML, 默认为 content; 如果设置 icon 与 text, 则覆盖 content 的设置
-                
+
                 var toastContentHtmlStr = ''
-                if(self.settings.content){
-                    toastContentHtmlStr  =self.settings.content
-                }else{
-                    var iconfontValue="";
+                if (self.settings.content) {
+                    toastContentHtmlStr = self.settings.content
+                } else {
+                    var iconfontValue = "";
                     var color = "";
-                    switch(toastType){
+                    switch (toastType) {
                         case 'error':
                             iconfontValue = "icon-failure_toast";
-                            color="#d81e06";
+                            color = "#d81e06";
                             break;
                         case 'warning':
                             iconfontValue = "icon-alert_toast";
-                            color="#f4ea2a";
+                            color = "#f4ea2a";
                             break;
                         case 'info':
                             iconfontValue = "icon-info";
-                            color="#1296db";
+                            color = "#1296db";
                             break;
                         case 'success':
                             iconfontValue = "icon-success_toast";
-                            color="#58b20f";
+                            color = "#58b20f";
                             break;
                         case 'question':
                             iconfontValue = "icon-question";
-                            color="#13227a";
+                            color = "#13227a";
                             break;
                         case 'busy':
                             iconfontValue = "icon-busy_toast";
-                            color="#d81e06";
+                            color = "#d81e06";
                             break;
                         case 'wind':
                             iconfontValue = "icon-windcontrol";
-                            color="#d81e06";
+                            color = "#d81e06";
                             break;
                         default:
                             break;
                     }
-                    if(iconfontValue!==""){
-                        toastContentHtmlStr += '<img class="info-icon iconfont '+iconfontValue+'" style="color:'+color+';"  />';
-                    }else if (self.settings.infoIcon !== '' ) {
+                    if (iconfontValue !== "") {
+                        toastContentHtmlStr += '<img class="info-icon iconfont ' + iconfontValue + '" style="color:' + color + ';"  />';
+                    } else if (self.settings.infoIcon !== '') {
                         toastContentHtmlStr += '<img class="info-icon" src="' + self.settings.infoIcon + '" />';
                     }
-                    if ( self.settings.infoText !== '') {
+                    if (self.settings.infoText !== '') {
                         toastContentHtmlStr += '<span class="info-text">' + self.settings.infoText + '</span>';
                     }
-                } 
+                }
                 var toastContentHtml = $(toastContentHtmlStr);
                 self.$dialogContentBd.append(toastContentHtml);
                 self.$dialogContent.append(self.$dialogContentBd);
@@ -480,7 +445,7 @@ export function dialogFunc($, window, document) {
                         position.y = touch.clientY;
                         position.top = $(this).scrollTop();
                         position.left = $(this).scrollLeft();
-                        return false;
+                        // return false;
                     })
                     .on('touchmove mousemove', '.content-scroll', function (ev) {
                         var touch = ev.changedTouches ? ev.changedTouches[0] : ev;
@@ -535,7 +500,7 @@ export function dialogFunc($, window, document) {
              */
             removeDialog: function () {
                 var self = this;
-
+                self.$dialogContent.html('');
                 self.$dialog.remove();
                 self.isHided = false;
                 self.settings.onClosed();
@@ -567,7 +532,8 @@ export function dialogFunc($, window, document) {
 
                 // 通过 content 更改弹窗内容
                 if (self.settings.content !== '') {
-                    self.$dialogContentBd.html(self.settings.content);
+                    self.$dialogContentBd.html('');
+                    self.$dialogContentBd.append(self.settings.content);
                 }
 
                 // 通过设置 infoIcon 与 infoText 更改弹窗内容, 会覆盖 content 的设置

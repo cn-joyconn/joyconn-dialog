@@ -1,9 +1,9 @@
 # joyconn-dialog
 
-移动端弹窗插件第二版，包括常见的 alert、confirm。toast、notice 四种类型弹窗，支持 jQuery 和 Zepto 库。
+移动端弹窗插件第二版，包括常见的 alert、toast、notice 类型弹窗，支持 jQuery 和 Zepto 库。
 
 ### 特性
-+ 支持常见的 alert、confirm、toast、notice 四种类型弹窗
++ 支持常见的 alert、toast、notice 类型弹窗
 + 可自定义按钮的文字、样式、回调函数，支持多个按钮
 + 多个弹窗状态改变回调函数
 + 同时支持 jQuery 和 Zepto 库
@@ -61,14 +61,13 @@ $(document).on('click', '#btn-01', function() {
             <td>'alert'</td>
             <td>弹窗的类型。
             alert: 确定; 
-            confirm: 确定/取消; 
             toast: 状态提示(基于toast，内置了success、error、warning、info、question、busy、wind7种模式); 
             notice: 提示信息</td>
         </tr>
         <tr>
             <td>style</td>
             <td>'default'</td>
-            <td>alert 与 confirm 弹窗的风格。<br />default: 根据访问设备平台; pc: pc 风格; </td>
+            <td>alert 弹窗的风格。<br />default: 根据访问设备平台; pc: pc 风格; </td>
         </tr>
         <tr>
             <td>titleShow</td>
@@ -98,7 +97,7 @@ $(document).on('click', '#btn-01', function() {
         <tr>
             <td>contentScroll</td>
             <td>true</td>
-            <td>alert 与 confirm 弹窗提示内容是否限制最大高度, 使其可以滚动</td>
+            <td>alert 弹窗提示内容是否限制最大高度, 使其可以滚动</td>
         </tr>
         <tr>
             <td>dialogClass</td>
@@ -128,12 +127,12 @@ $(document).on('click', '#btn-01', function() {
         <tr>
             <td>buttonTextConfirm</td>
             <td>'确定'</td>
-            <td>确定按钮文字</td>
+            <td>确定按钮文字，为null、''、undefined、false时不显示确定按钮</td>
         </tr>
         <tr>
             <td>buttonTextCancel</td>
             <td>'取消'</td>
-            <td>取消按钮文字</td>
+            <td>取消按钮文字，为null、''、undefined、false时不显示取消按钮</td>
         </tr>
         <tr>
             <td>buttonClassConfirm</td>
@@ -148,7 +147,7 @@ $(document).on('click', '#btn-01', function() {
         <tr>
             <td>buttons</td>
             <td>[]</td>
-            <td>confirm 弹窗自定义按钮组, 会覆盖"确定"与"取消"按钮; <br />单个 button 对象可设置 name [ 名称 ]、class [ 自定义class ]、callback [ 点击执行的函数 ]</td>
+            <td>alert 弹窗自定义按钮组, 不会覆盖"确定"与"取消"按钮; <br />单个 button 对象可设置 name [ 名称 ]、class [ 自定义class ]、callback [ 点击执行的函数 ]</td>
         </tr>
         <tr>
             <td>infoIcon</td>

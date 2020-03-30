@@ -1,6 +1,6 @@
 {
   "name": "joyconn-dialog",
-  "version": "1.0.8",
+  "version": "1.0.12",
   "description": "兼容jquery或zepto的弹出层",
   "main": "index.js",
   "scripts": {
