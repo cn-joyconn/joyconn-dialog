@@ -186,37 +186,37 @@ export function dialogFunc($, window, document) {
 
                 switch (dialogType) {
                     case 'alert':
-                        _createDialogAlertTypeDOM(self, dialogType);                        
+                        self._createDialogAlertTypeDOM(self, dialogType);                        
                         break;
                     case 'confirm':
-                        _createDialogConfirmTypeDOM(self, dialogType);                       
+                        self._createDialogConfirmTypeDOM(self, dialogType);                       
                         break;
                     case 'toast':
-                        _createDialogToastTypeDOM(self, dialogType);
+                        self._createDialogToastTypeDOM(self, dialogType);
                         break;
                     case 'error':
-                        _createDialogToastTypeDOM(self, dialogType);
+                        self._createDialogToastTypeDOM(self, dialogType);
                         break;
                     case 'warning':
-                        _createDialogToastTypeDOM(self, dialogType);
+                        self._createDialogToastTypeDOM(self, dialogType);
                         break;
                     case 'info':
-                        _createDialogToastTypeDOM(self, dialogType);
+                        self._createDialogToastTypeDOM(self, dialogType);
                         break;
                     case 'success':
-                        _createDialogToastTypeDOM(self, dialogType);
+                        self._createDialogToastTypeDOM(self, dialogType);
                         break;
                     case 'question':
-                        _createDialogToastTypeDOM(self, dialogType);
+                        self._createDialogToastTypeDOM(self, dialogType);
                         break;
                     case 'busy':
-                        _createDialogToastTypeDOM(self, dialogType);
+                        self._createDialogToastTypeDOM(self, dialogType);
                         break;
                     case 'wind':
-                        _createDialogToastTypeDOM(self, dialogType);
+                        self._createDialogToastTypeDOM(self, dialogType);
                         break;
                     case 'notice':
-                        _createDialogNoticeTypeDOM(self, dialogType);
+                        self._createDialogNoticeTypeDOM(self, dialogType);
                         break;
                     default:
                         console.log('running default');
@@ -563,7 +563,7 @@ export function dialogFunc($, window, document) {
                 clearTimeout(self.autoCloseTimer);
 
                 // 设置默认值，并且指向给对象的默认值
-                self.settings = Object.assign(dialog_defaults, options);
+                self.settings = Object.assign(dialog_defaults, settings);
 
                 // 通过 content 更改弹窗内容
                 if (self.settings.content !== '') {
