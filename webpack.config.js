@@ -5,7 +5,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 // const webpack = require('webpack');
 module.exports = {
   mode: 'production',
-  entry: './src/index.js',
+  entry: './index.js',
   output: {
     path: path.resolve(__dirname, '.'),
      filename: './dist/jdialog.js',
@@ -48,7 +48,20 @@ module.exports = {
               'less-loader',
               'postcss-loader'
           ]
-      },    
+      },
+      {
+                 test: /(iconfont.svg)|\.(woff|woff2|eot|ttf|otf)$/,
+                 use:[
+                     {
+                         loader:'file-loader',
+                         options:{
+                             name:'[name].[ext]',  //[path] 上下文环境路径
+                             publicPath:'./iconfont/',    //公共路径
+                             outputPath:'dist/iconfont/',  //输出路径                          
+                         }
+                     }               
+                 ]
+      } ,    
       {
         test: /\.ts$/,
         use: ['babel-loader'],

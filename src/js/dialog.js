@@ -2,7 +2,7 @@ import $ from 'n-zepto'
 import { dialogFunc } from './core.js';
 import loadJS from "./util"
 import "../css/dialog.css";
-export function dialog(){
+export function jdialog(){
    // if (!window.$) {
    //    loadJS('https://cdn.bootcss.com/echarts/4.3.0/echarts.min.js', null, true);
    // }else{
@@ -10,4 +10,4 @@ export function dialog(){
    // }
    return dialogFunc($,window,document,undefined)
 };
-window.dialog=dialog();
+window.jdialog=jdialog();

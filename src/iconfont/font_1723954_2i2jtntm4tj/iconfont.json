@@ -1,0 +1,58 @@
+{
+  "id": "1723954",
+  "name": "joyconn-dialog",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "850428",
+      "name": "question",
+      "font_class": "question",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "850725",
+      "name": "Wind_control",
+      "font_class": "windcontrol",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "1160157",
+      "name": "info",
+      "font_class": "info",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "4674644",
+      "name": "busy_toast",
+      "font_class": "busy_toast",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "4674645",
+      "name": "alert_toast",
+      "font_class": "alert_toast",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "4674654",
+      "name": "failure_toast",
+      "font_class": "failure_toast",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "4674661",
+      "name": "success_toast",
+      "font_class": "success_toast",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "name": "joyconn-dialog",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "兼容jquery或zepto的弹出层",
   "main": "index.js",
   "scripts": {
@@ -32,6 +32,7 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.1.2",
+    "file-loader": "^6.0.0",
     "webpack": "^4.42.1",
     "webpack-bundle-analyzer": "^3.6.1",
     "webpack-cli": "^3.3.11"

@@ -59,7 +59,11 @@ $(document).on('click', '#btn-01', function() {
         <tr>
             <td>type</td>
             <td>'alert'</td>
-            <td>弹窗的类型。alert: 确定; confirm: 确定/取消; toast: 状态提示; notice: 提示信息</td>
+            <td>弹窗的类型。
+            alert: 确定; 
+            confirm: 确定/取消; 
+            toast: 状态提示(基于toast，内置了success、error、warning、info、question、busy、wind7种模式); 
+            notice: 提示信息</td>
         </tr>
         <tr>
             <td>style</td>
@@ -225,19 +229,19 @@ $(document).on('click', '#btn-01', function() {
 ## 目录结构
 ```
 .
-├─dist                       # 项目发布资源目录, npm 生成
+├─dist                      # 项目发布资源目录, npm 生成
 │  ├─jdialog.css            # 弹出层 CSS 文件
 │  ├─jdialog_z.js           # 支持zepto的dialo.js文件
 │  └─jdialog_j.js           # 支持jquery的dialo.js文件
-├─src                        # 实际进行开发的目录
+├─src                       # 实际进行开发的目录
 │  ├─css                    # 项目 CSS 文件 
 │  ├─demos                  # 项目示例页面
-│  ├─images                 # 项目 image 文件
+│  ├─iconfont               # 项目 iconfont 文件
 │  ├─js                     # 项目 JS 文件
-│  │  ├─core.js            # 弹窗主要 JS
-│  │  ├─dialog.js          # dialog封装 JS
-│  │  ├─example.js         # 示例 JS
-│  │  └─util.js            # 工具 JS
+│  │  ├─core.js             # 弹窗主要 JS
+│  │  ├─dialog.js           # dialog封装 JS
+│  │  ├─example.js          # 示例 JS
+│  │  └─util.js             # 工具 JS
 │  └─index.js               # 入口 JS
 │
 ├─webpack.config.zepto.js    # webpack 打包配置
