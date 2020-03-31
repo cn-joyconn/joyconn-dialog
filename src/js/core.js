@@ -8,7 +8,7 @@
  */
 
 import "../iconfont/font_1723954_2i2jtntm4tj/iconfont.css";
-import {mobileUtil} from './util'
+import { mobileUtil } from './util'
 
 var clientObject = mobileUtil(window);
 /**
@@ -36,12 +36,12 @@ const dialog_defaults = {
     buttons: [],       // confirm 弹窗自定义按钮组, 会覆盖"确定"与"取消"按钮; 单个 button 对象可设置 name [ 名称 ]、class [ 自定义class ]、callback [ 点击执行的函数 ]
 
     infoIcon: '',        // toast 与 notice 弹窗的提示图标, 值为图标的路径。不设置=不显示
+    infoIconColor: '',        // toast 与 notice 弹窗的提示图标, 值为图标的路径。不设置=不显示
     infoText: '',        // toast 与 notice 弹窗的提示文字, 会覆盖 content 的设置
     position: 'center',  // notice 弹窗的位置, [ center: 居中; bottom: 底部 ]
 
     onClickConfirmBtn: function () { },  // “确定”按钮的回调函数
     onClickCancelBtn: function () { },  // “取消”按钮的回调函数
-    onClickCloseBtn: function () { },  // “关闭”按钮的回调函数
     onBeforeShow: function () { },  // 弹窗显示前的回调函数
     onShow: function () { },  // 弹窗显示后的回调函数
     onBeforeClosed: function () { },  // 弹窗关闭前的回调函数
@@ -53,8 +53,8 @@ const dialog_defaults = {
          */
 function Dialog(options) {
     // var defaultOptions = JSON.parse(JSON.stringify(dialog_defaults))
-    this.settings ={}; 
-    Object.assign(this.settings,dialog_defaults, options);
+    this.settings = {};
+    Object.assign(this.settings, dialog_defaults, options);
 }
 Dialog.prototype = {
     /**
@@ -109,23 +109,22 @@ Dialog.prototype = {
         }).on('touchend', function (ev) {
             ev.preventDefault();
         });
-
-        // 取消按钮关闭弹窗
-        self.$cancelBtn.on(clientObject.tapEvent, function (ev) {
+        function cancelCloseDialog() {
             var callback = self.settings.onClickCancelBtn();
             if (callback || callback === undefined) {
                 self.closeDialog();
             }
+        }
+        // 取消按钮关闭弹窗
+        self.$cancelBtn.on(clientObject.tapEvent, function (ev) {
+            cancelCloseDialog();
         }).on('touchend', function (ev) {
             ev.preventDefault();
         });
 
         // 关闭按钮关闭弹窗
         self.$closeBtn.on(clientObject.tapEvent, function (ev) {
-            var callback = self.settings.onClickCloseBtn();
-            if (callback || callback === undefined) {
-                self.closeDialog();
-            }
+            cancelCloseDialog()
         }).on('touchend', function (ev) {
             ev.preventDefault();
         });
@@ -133,7 +132,7 @@ Dialog.prototype = {
         // 遮罩层关闭弹窗
         if (self.settings.overlayClose) {
             $(document).on(clientObject.tapEvent, '.dialog-overlay', function (ev) {
-                self.closeDialog();
+                cancelCloseDialog()
             });
         }
 
@@ -244,6 +243,9 @@ Dialog.prototype = {
             case 'wind':
                 self._createDialogToastTypeDOM(self, dialogType);
                 break;
+            case 'loading':
+                self._createDialogToastTypeDOM(self, dialogType);
+                break;
             case 'notice':
                 self._createDialogNoticeTypeDOM(self, dialogType);
                 break;
@@ -345,12 +347,21 @@ Dialog.prototype = {
                 case 'wind':
                     iconfontValue = "icon-windcontrol";
                     color = "#d81e06";
+                    console.info("wind")
+                    break;
+                case 'loading':
+                    iconfontValue = "icon-loading jdialog-loading-route-animation";
+                    color = "#1296db";
+                    console.info("loading")
                     break;
                 default:
                     break;
             }
+            if (self.settings.infoIconColor) {
+                color = self.settings.infoIconColor;
+            }
             if (iconfontValue !== "") {
-                toastContentHtmlStr += '<img class="info-icon iconfont ' + iconfontValue + '" style="color:' + color + ';"  />';
+                toastContentHtmlStr += '<div><i class="info-icon JDialog-icon ' + iconfontValue + '" style="color:' + color + ';display: inline-block;"  ></i></div>';
             } else if (self.settings.infoIcon !== '') {
                 toastContentHtmlStr += '<img class="info-icon" src="' + self.settings.infoIcon + '" />';
             }
@@ -619,4 +630,5 @@ export function dialogFunc(options) {
     obj.close = function () {
         obj.closeDialog();
     }
+    return obj;
 }

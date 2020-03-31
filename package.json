@@ -4,7 +4,7 @@
   "description": "兼容jquery或zepto的弹出层",
   "main": "index.js",
   "scripts": {
-    "serve": "webpack-dev-server  --inline --hot --progress --colors --watch  --content-base . --open --open-page src/demo/demo.html",
+    "serve": "webpack-dev-server  --inline --hot --progress --colors --watch  --content-base . --open --open-page demo/demo.html",
     "build": "webpack"
   },
   "repository": {

@@ -1,10 +1,17 @@
 {
   "id": "1723954",
   "name": "joyconn-dialog",
-  "font_family": "iconfont",
+  "font_family": "JDialog-icon",
   "css_prefix_text": "icon-",
   "description": "",
   "glyphs": [
+    {
+      "icon_id": "13743948",
+      "name": "loading1",
+      "font_class": "loading",
+      "unicode": "e688",
+      "unicode_decimal": 59016
+    },
     {
       "icon_id": "850428",
       "name": "question",

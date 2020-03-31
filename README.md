@@ -1,4 +1,4 @@
-# joyconn-dialog
+# JDialog
 
 移动端弹窗插件第二版，包括常见的 alert、toast、notice 类型弹窗，支持 jQuery 和 Zepto 库。
 
@@ -67,7 +67,7 @@ $(document).on('click', '#btn-01', function() {
         <tr>
             <td>style</td>
             <td>'default'</td>
-            <td>alert 弹窗的风格。<br />default: 根据访问设备平台; pc: pc 风格; </td>
+            <td>alert 弹窗的风格。<br />default: 根据访问设备平台; pc: pc 风格;mobile: mobile 风格; </td>
         </tr>
         <tr>
             <td>titleShow</td>
@@ -155,6 +155,11 @@ $(document).on('click', '#btn-01', function() {
             <td>toast 与 notice 弹窗的提示图标, 值为图标的路径。不设置=不显示</td>
         </tr>
         <tr>
+            <td>infoIconColor</td>
+            <td>''</td>
+            <td>toast 与 notice 弹窗的提示图标的颜色, 如：'#f00'。</td>
+        </tr>
+        <tr>
             <td>infoText</td>
             <td>''</td>
             <td>toast 与 notice 弹窗的提示文字, 会覆盖 content 的设置</td>
@@ -187,11 +192,6 @@ $(document).on('click', '#btn-01', function() {
             <td>onClickCancelBtn</td>
             <td>function(){}</td>
             <td>点击“取消”按钮的回调函数</td>
-        </tr>
-        <tr>
-            <td>onClickCloseBtn</td>
-            <td>function(){}</td>
-            <td>点击“关闭”按钮的回调函数</td>
         </tr>
         <tr>
             <td>onBeforeShow</td>

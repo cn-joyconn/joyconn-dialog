@@ -9,7 +9,7 @@
   z-index: 10001;
   width: 100%;
   height: 100%;
-  font-size: 12px;
+  font-size: .75rem;
 }
 
 .jdialog .dialog-overlay {
@@ -33,7 +33,7 @@
       transform: translate(-50%, -50%);
   line-height: 1.5;
   background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 10px;
+  border-radius: .5rem;
 }
 .jdialog .dialog-content * {
   box-sizing: border-box;
@@ -45,16 +45,16 @@
   -moz-user-select: text;
   -webkit-tap-highlight-color: transparent;
   font-family: Helvetica;
-  font-size: 15px;
+  font-size: 1rem;
 }
 
 .jdialog .dialog-btn, .dialog-btn-hl {
   position: relative;
   display: inline-block;
-  height: 44px;
-  line-height: 44px;
+  height: 2.8rem;
+  line-height: 2rem;
   color: #007aff;
-  font-size: 17px;
+  font-size: 1.3rem;
   font-weight: 400;
   cursor: pointer;
   text-decoration: none;
@@ -66,23 +66,23 @@
 
 .jdialog .dialog-content-hd {
   position: relative;
-  padding: 20px 20px 10px;
-  margin-bottom: -25px;
+  padding: 1.4rem 1.4rem .8rem;
+  margin-bottom:  -1.5rem;;
   text-align: center;
 }
 .jdialog .dialog-content-hd .dialog-content-title {
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 1.13rem;
+  font-weight: bold;
   color: #333;
 }
 .jdialog .dialog-content-hd .dialog-btn-close {
   display: block;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height:  1.625rem;
   overflow: hidden;
   position: absolute;
-  top: 18px;
-  right: 15px;
+  top: 1.125rem;
+  right: .938rem;
   cursor: pointer;
   background-color: transparent;
 }
@@ -92,12 +92,12 @@
 .jdialog .dialog-content-hd .dialog-btn-close:before, .dialog-content-hd .dialog-btn-close:after {
   content: "";
   display: block;
-  width: 18px;
-  height: 1px;
-  background-color: #808080;
+  width: 1.125rem;
+  height: .0625rem;
+  background-color: #333;
   position: absolute;
-  top: 13px;
-  right: 3px;
+  top: .8125rem;
+  right: .175rem;
 }
 .jdialog .dialog-content-hd .dialog-btn-close:before {
   -webkit-transform: rotate(45deg);
@@ -111,12 +111,12 @@
 }
 
 .jdialog .dialog-content-bd {
-  margin: 25px 20px;
-  color: #666;
+  margin: 1.563rem 1.25rem;
+  color: #000;
   text-align: center;
 }
 .jdialog .dialog-content-bd p {
-  padding: 5px 0;
+  padding: .31rem 0;
 }
 
 .jdialog .content-scroll {
@@ -137,8 +137,8 @@
   left: 0;
   top: 0;
   width: 100%;
-  height: 1px;
-  border-top: 1px solid #d5d5d5;
+  height: .0625rem;
+  border-top: .0625rem solid #d5d5d5;
   color: #d5d5d5;
   -webkit-transform-origin: 0 0;
   -ms-transform-origin: 0 0;
@@ -158,9 +158,9 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 1px;
+  width: .0625rem;
   height: 100%;
-  border-left: 1px solid #d5d5d5;
+  border-left: .0625rem solid #d5d5d5;
   color: #d5d5d5;
   -webkit-transform-origin: 0 0;
   -ms-transform-origin: 0 0;
@@ -170,13 +170,13 @@
       transform: scaleX(0.5);
 }
 .jdialog .dialog-content-ft .dialog-btn:first-child {
-  border-bottom-left-radius: 8px;
+  border-bottom-left-radius: .5rem;
 }
 .jdialog .dialog-content-ft .dialog-btn:first-child:after {
   border-left: none;
 }
 .jdialog .dialog-content-ft .dialog-btn:last-child {
-  border-bottom-right-radius: 8px;
+  border-bottom-right-radius: .5rem;
 }
 
 .jdialog .dialog-content-ft.stacked {
@@ -199,8 +199,8 @@
   left: 0;
   top: 0;
   width: 100%;
-  height: 1px;
-  border-top: 1px solid #d5d5d5;
+  height: .0625rem;
+  border-top: .0625rem solid #d5d5d5;
   color: #d5d5d5;
   -webkit-transform-origin: 0 0;
   -ms-transform-origin: 0 0;
@@ -248,22 +248,22 @@
 }
 [data-style=pc].jdialog .dialog-content-hd {
   text-align: left;
-  padding: 10px 20px ;
-  margin-bottom: -10px;
-  border-bottom: 1px solid #E5E5E5;
+  padding: .625rem 1.25rem ;
+  margin-bottom: -.625rem;
+  border-bottom: .0625rem solid #E5E5E5;
 }
 [data-style=pc].jdialog .dialog-content-hd .dialog-btn-close {
-  top: 10px;
-  right: 15px;
+  top: .625rem;
+  right: .938rem;
 }
 [data-style=pc].jdialog .dialog-content-bd {
-  margin: 25px 20px;
+  margin: 1.563rem 1.25rem;
   text-align: left;
 }
 [data-style=pc].jdialog .dialog-content-ft {
   display: block;
-  padding: 8px;
-  margin-top: -10px;
+  padding: .5rem;
+  margin-top: -.625rem;
   text-align: right;
 }
 [data-style=pc].jdialog .dialog-content-ft:after {
@@ -271,17 +271,17 @@
 }
 [data-style=pc].jdialog .dialog-content-ft .dialog-btn {
   display: inline-block;
-  min-width: 60px;
-  height: 36px;
-  line-height: 36px;
+  min-width: 3.75rem;
+  height: 2.25rem;
+  line-height: 2.25rem;
   overflow: hidden;
-  padding: 0 13px;
-  font-size: 16px;
-  color: #808080;
+  padding: 0 .8125rem;
+  font-size: 1rem;
+  color: #333;
   text-align: center;
-  border-radius: 2px;
-  margin:2px;
-  border:  1px solid #E5E5E5; 
+  border-radius: .125rem;
+  margin:.125rem;
+  border:  .0625rem solid #E5E5E5; 
   border-radius:'10%';
 }
 [data-style=pc].jdialog .dialog-content-ft .dialog-btn:after {
@@ -302,8 +302,8 @@
   left: 0;
   top: 0;
   width: 100%;
-  height: 1px;
-  border-top: 1px solid #d5d5d5;
+  height: .0625rem;
+  border-top: .0625rem solid #d5d5d5;
   color: #d5d5d5;
   -webkit-transform-origin: 0 0;
   -ms-transform-origin: 0 0;
@@ -316,8 +316,8 @@
   border-radius: 99999px;
   pointer-events: none;
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 12.5rem;
+  height: 12.5rem;
   background: rgba(0, 0, 0, 0.5);
   opacity: 0;
   -webkit-transform: scale(0);
@@ -371,9 +371,9 @@
   background-color: transparent;
 }
 .jdialog.dialog-toast .dialog-content {
-  width: 148px;
-  height: 148px;
-  border-radius: 10px;
+  width: 9.25rem;
+  height: 9.25rem;
+  border-radius: .625rem;
   background-color: rgba(0, 0, 0, 0.8);
   display: table;
 }
@@ -393,14 +393,15 @@
   padding: 0;
 }
 .jdialog.dialog-toast .info-icon {
-  width: 56px;
-  max-width: 56px;
+  width: 3.5rem;
+  max-width: 3.5rem;
+  font-size: 2.5rem;
 }
 .jdialog.dialog-toast .info-text {
   display: block;
   width: 90%;
-  margin: 12px auto 0;
-  font-size: 16px;
+  margin: .6rem auto 0;
+  font-size: 1.2rem;
   color: #fff;
 }
 
@@ -446,26 +447,26 @@
   display: table;
   width: auto;
   max-width: 85%;
-  border-radius: 4px;
+  border-radius: .25rem;
   background-color: rgba(0, 0, 0, 0.8);
 }
 .jdialog.dialog-notice .dialog-content-bd {
   margin: 0;
   font-size: 0;
-  padding: 10px 15px;
+  padding: .625rem .938rem;
   line-height: normal;
 }
 .jdialog.dialog-notice .info-icon {
-  width: 16px;
-  max-width: 16px;
-  margin: 0 2px;
+  width: 1rem;
+  max-width: 1rem;
+  margin: 0 .125rem;
   vertical-align: middle;
   position: relative;
-  top: -1px;
+  top: -.0625rem;
 }
 .jdialog.dialog-notice .info-text {
-  margin: 0 2px;
-  font-size: 14px;
+  margin: 0 .125rem;
+  font-size: .875rem;
   color: #fff;
   line-height: 1.3;
   vertical-align: middle;
@@ -508,9 +509,9 @@
 .jdialog.dialog-notice-bottom .dialog-content {
   top: auto;
   bottom: 0;
-  -webkit-transform: translate(-50%, -20px);
-  -ms-transform: translate(-50%, -20px);
-      transform: translate(-50%, -20px);
+  -webkit-transform: translate(-50%, -1.25rem);
+  -ms-transform: translate(-50%, -1.25rem);
+      transform: translate(-50%, -1.25rem);
 }
 
 .jdialog.dialog-notice-bottom.dialog-open .dialog-content,
@@ -673,11 +674,11 @@
   }
   80% {
     opacity: 1;
-    -webkit-transform: translate(-50%, -24px);
+    -webkit-transform: translate(-50%, -1.5rem);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translate(-50%, -20px);
+    -webkit-transform: translate(-50%, -1.25rem);
   }
 }
 @keyframes bounce-in-up {
@@ -688,19 +689,19 @@
   }
   80% {
     opacity: 1;
-    -webkit-transform: translate(-50%, -24px);
-    transform: translate(-50%, -24px);
+    -webkit-transform: translate(-50%, -1.5rem);
+    transform: translate(-50%, -1.5rem);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translate(-50%, -20px);
-    transform: translate(-50%, -20px);
+    -webkit-transform: translate(-50%, -1.25rem);
+    transform: translate(-50%, -1.25rem);
   }
 }
 @-webkit-keyframes bounce-out-down {
   0% {
     opacity: 1;
-    -webkit-transform: translate(-50%, -20px);
+    -webkit-transform: translate(-50%, -1.25rem);
   }
   100% {
     opacity: 0;
@@ -710,8 +711,8 @@
 @keyframes bounce-out-down {
   0% {
     opacity: 1;
-    -webkit-transform: translate(-50%, -20px);
-    transform: translate(-50%, -20px);
+    -webkit-transform: translate(-50%, -1.25rem);
+    transform: translate(-50%, -1.25rem);
   }
   100% {
     opacity: 0;
@@ -719,21 +720,61 @@
     transform: translate(-50%, 0);
   }
 }
-@font-face {font-family: "iconfont";
+.jdialog .loading-route-animation {
+
+  animation: jdialog-rotate-animation 2s ease-out 500ms infinite;
+
+}
+@keyframes jdialog-rotate-animation{
+   0% {  
+      transform: rotate(0deg);  
+    }  
+    10% {  
+      transform: rotate(10deg);  
+    }  
+    20% {  
+      transform: rotate(20deg);  
+    }  
+    30% {  
+      transform: rotate(30deg);  
+    }  
+    40% {  
+      transform: rotate(40deg);  
+    }  
+    50% {  
+      transform: rotate(50deg);  
+    }  
+    60% {  
+      transform: rotate(60deg);  
+    }  
+    70% {  
+      transform: rotate(70deg);  
+    }  
+    80% {  
+      transform: rotate(80deg);  
+    }  
+    90% {  
+      transform: rotate(90deg);  
+    }  
+  }@font-face {font-family: "JDialog-icon";
   src: url(./iconfont/iconfont.eot); /* IE9 */
   src: url(./iconfont/iconfont.eot#iefix) format('embedded-opentype'), 
-  url('data:application/x-font-woff2;charset=utf-8;base64,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') format('woff2'),
+  url('data:application/x-font-woff2;charset=utf-8;base64,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') format('woff2'),
   url(./iconfont/iconfont.woff) format('woff'),
   url(./iconfont/iconfont.ttf) format('truetype'), 
-  url(./iconfont/iconfont.svg#iconfont) format('svg'); /* iOS 4.1- */
+  url(./iconfont/iconfont.svg#JDialog-icon) format('svg'); /* iOS 4.1- */
 }
 
-.iconfont {
-  font-family: "iconfont" !important;
+.JDialog-icon {
+  font-family: "JDialog-icon" !important;
   font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-loading:before {
+  content: "\e688";
 }
 
 .icon-question:before {
