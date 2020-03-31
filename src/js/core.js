@@ -8,6 +8,7 @@
  */
 
 import "../iconfont/font_1723954_2i2jtntm4tj/iconfont.css";
+import "../css/dialog.css";
 import { mobileUtil } from './util'
 
 var clientObject = mobileUtil(window);
@@ -38,6 +39,8 @@ const dialog_defaults = {
     infoIcon: '',        // toast 与 notice 弹窗的提示图标, 值为图标的路径。不设置=不显示
     infoIconColor: '',        // toast 与 notice 弹窗的提示图标, 值为图标的路径。不设置=不显示
     infoText: '',        // toast 与 notice 弹窗的提示文字, 会覆盖 content 的设置
+    infoColor: '',// toast 与 notice 弹窗的文字颜色,默认:#fff
+    infoBgColor: '',// toast 与 notice 弹窗的背景颜色,默认:rgba(0, 0, 0, 0.8);
     position: 'center',  // notice 弹窗的位置, [ center: 居中; bottom: 底部 ]
 
     onClickConfirmBtn: function () { },  // “确定”按钮的回调函数
@@ -222,31 +225,43 @@ Dialog.prototype = {
             case 'toast':
                 self._createDialogToastTypeDOM(self, dialogType);
                 break;
-            case 'error':
+            case 'toast_error':
                 self._createDialogToastTypeDOM(self, dialogType);
                 break;
-            case 'warning':
+            case 'toast_warning':
                 self._createDialogToastTypeDOM(self, dialogType);
                 break;
-            case 'info':
+            case 'toast_info':
                 self._createDialogToastTypeDOM(self, dialogType);
                 break;
-            case 'success':
+            case 'toast_success':
                 self._createDialogToastTypeDOM(self, dialogType);
                 break;
-            case 'question':
+            case 'toast_question':
                 self._createDialogToastTypeDOM(self, dialogType);
                 break;
-            case 'busy':
+            case 'toast_busy':
                 self._createDialogToastTypeDOM(self, dialogType);
                 break;
-            case 'wind':
+            case 'toast_wind':
                 self._createDialogToastTypeDOM(self, dialogType);
                 break;
             case 'loading':
                 self._createDialogToastTypeDOM(self, dialogType);
                 break;
             case 'notice':
+                self._createDialogNoticeTypeDOM(self, dialogType);
+                break;
+            case 'notice_error':
+                self._createDialogNoticeTypeDOM(self, dialogType);
+                break;
+            case 'notice_warning':
+                self._createDialogNoticeTypeDOM(self, dialogType);
+                break;
+            case 'notice_info':
+                self._createDialogNoticeTypeDOM(self, dialogType);
+                break;
+            case 'notice_success':
                 self._createDialogNoticeTypeDOM(self, dialogType);
                 break;
             default:
@@ -318,33 +333,33 @@ Dialog.prototype = {
             toastContentHtmlStr = self.settings.content
         } else {
             var iconfontValue = "";
-            var color = "";
+            var color = "#fff", infoBgColor = "rgba(0, 0, 0, 0.8);", infoColor = "fff";
             switch (toastType) {
-                case 'error':
+                case 'toast_error':
                     iconfontValue = "icon-failure_toast";
                     color = "#d81e06";
                     break;
-                case 'warning':
+                case 'toast_warning':
                     iconfontValue = "icon-alert_toast";
                     color = "#f4ea2a";
                     break;
-                case 'info':
+                case 'toast_info':
                     iconfontValue = "icon-info";
                     color = "#1296db";
                     break;
-                case 'success':
+                case 'toast_success':
                     iconfontValue = "icon-success_toast";
                     color = "#58b20f";
                     break;
-                case 'question':
+                case 'toast_question':
                     iconfontValue = "icon-question";
                     color = "#13227a";
                     break;
-                case 'busy':
+                case 'toast_busy':
                     iconfontValue = "icon-busy_toast";
                     color = "#d81e06";
                     break;
-                case 'wind':
+                case 'toast_wind':
                     iconfontValue = "icon-windcontrol";
                     color = "#d81e06";
                     console.info("wind")
@@ -357,6 +372,12 @@ Dialog.prototype = {
                 default:
                     break;
             }
+            if (self.settings.infoColor) {
+                infoColor = self.settings.infoColor;
+            }
+            if (self.settings.infoBgColor) {
+                infoBgColor = self.settings.infoBgColor;
+            }
             if (self.settings.infoIconColor) {
                 color = self.settings.infoIconColor;
             }
@@ -366,13 +387,14 @@ Dialog.prototype = {
                 toastContentHtmlStr += '<img class="info-icon" src="' + self.settings.infoIcon + '" />';
             }
             if (self.settings.infoText !== '') {
-                toastContentHtmlStr += '<span class="info-text">' + self.settings.infoText + '</span>';
+                toastContentHtmlStr += '<span class="info-text"  style="color:' + infoColor + ';">' + self.settings.infoText + '</span>';
             }
         }
         var toastContentHtml = $(toastContentHtmlStr);
         self.$dialogContentBd.append(toastContentHtml);
         self.$dialogContent.append(self.$dialogContentBd);
         self.$dialog.append(self.$dialogContent);
+        self.$dialogContent.css("background-color", infoBgColor)
         $('body').append(self.$dialog);
 
         if (self.settings.bodyNoScroll) {
@@ -387,6 +409,8 @@ Dialog.prototype = {
         // 底部显示的 toast
         if (self.settings.position === 'bottom') {
             self.$dialog.addClass('dialog-notice-bottom');
+        } else if (self.settings.position === 'top') {
+            self.$dialog.addClass('dialog-notice-top');
         }
 
         // 显示遮罩层
@@ -394,20 +418,67 @@ Dialog.prototype = {
             self.$dialog.append(self.$dialogOverlay);
         }
 
-        // 弹窗内容 HTML, 默认为 content; 如果设置 icon 与 text, 则覆盖 content 的设置
-        var noticeContentHtml = $(self.settings.content);
 
-        if (self.settings.infoIcon !== '' && self.settings.infoText !== '') {
-            noticeContentHtml = $('<img class="info-icon" src="' + self.settings.infoIcon + '" /><span class="info-text">' + self.settings.infoText + '</span>');
-        } else if (self.settings.infoIcon === '' && self.settings.infoText !== '') {
-            noticeContentHtml = $('<span class="info-text">' + self.settings.infoText + '</span>');
-        } else if (self.settings.infoIcon !== '' && self.settings.infoText === '') {
-            noticeContentHtml = $('<img class="info-icon" src="' + self.settings.infoIcon + '" />');
+        var toastContentHtmlStr = ''
+        if (self.settings.content) {
+            toastContentHtmlStr = self.settings.content
+        } else {
+            var iconfontValue = "";
+            var color = "#fff", infoBgColor = "rgba(0, 0, 0, 0.8);", infoColor = "fff";
+
+            switch (noticeType) {
+                case 'notice_error':
+                    iconfontValue = "icon-failure_toast";
+                    color = "#d81e06";
+                    infoColor = "#d81e06";
+                    infoBgColor = "rgba(255, 130, 106, 0.4);";
+                    break;
+                case 'notice_warning':
+                    iconfontValue = "icon-alert_toast";
+                    color = "#DAA520";
+                    infoColor = "#DAA520";
+                    infoBgColor = "rgba(238,232,170, 0.4);";
+                    break;
+                case 'notice_info':
+                    iconfontValue = "icon-info";
+                    color = "#4682B4";
+                    infoColor = "#4682B4";
+                    infoBgColor = "rgba(175,238,238, 0.4);";
+                    break;
+                case 'notice_success':
+                    iconfontValue = "icon-success_toast";
+                    color = "#58b20f";
+                    infoColor = "#58b20f";
+                    infoBgColor = "rgba(148, 248, 85, 0.4);";
+                    break;
+            }
+            if (self.settings.infoColor) {
+                infoColor = self.settings.infoColor;
+            }
+            if (self.settings.infoBgColor) {
+                infoBgColor = self.settings.infoBgColor;
+            }
+            if (self.settings.infoIconColor) {
+                color = self.settings.infoIconColor;
+            }
+
+            if (iconfontValue !== "") {
+                toastContentHtmlStr += '<i class="info-icon JDialog-icon ' + iconfontValue + '" style="color:' + color + ';display: inline-block;"  ></i>';
+            } else if (self.settings.infoIcon !== '') {
+                toastContentHtmlStr += '<img class="info-icon" src="' + self.settings.infoIcon + '" />';
+            }
+            if (self.settings.infoText !== '') {
+                toastContentHtmlStr += '<span class="info-text"  style="color:' + infoColor + ';">' + self.settings.infoText + '</span>';
+            }
         }
+
+        // 弹窗内容 HTML, 默认为 content; 如果设置 icon 与 text, 则覆盖 content 的设置
+        var noticeContentHtml = $(toastContentHtmlStr);
 
         self.$dialogContentBd.append(noticeContentHtml);
         self.$dialogContent.append(self.$dialogContentBd);
         self.$dialog.append(self.$dialogContent);
+        self.$dialogContent.css("background-color", infoBgColor)
         $('body').append(self.$dialog);
 
         if (self.settings.bodyNoScroll) {

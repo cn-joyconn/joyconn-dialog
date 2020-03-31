@@ -1,6 +1,6 @@
 # JDialog
 
-移动端弹窗插件第二版，包括常见的 alert、toast、notice 类型弹窗，支持 jQuery 和 Zepto 库。
+pc、移动端弹窗插件第二版，包括常见的 alert、toast、notice 类型弹窗，支持 jQuery 和 Zepto 库。
 
 ### 特性
 + 支持常见的 alert、toast、notice 类型弹窗
@@ -20,8 +20,8 @@
 **1、script引入方式**
 ```
 //请自行引入zepto或jquery
-<link rel="stylesheet" href="../dialog.css" />
-<script src="../dialog.js"></script>
+<link rel="stylesheet" href="dist/JoyDialog.css" />
+<script src="dist/JoyDialog.js"></script>
 ```
 
 **2、npm引入方式**
@@ -38,8 +38,8 @@ npm install --save-dev joyconn-dialog
 **4、实例化**
 ```javascript
 $(document).on('click', '#btn-01', function() {
-    var dialog1 = $(document).dialog({
-        content: 'Dialog 移动端弹窗插件的自定义提示内容',
+    var dialog1 = JoyDialog({
+         content: 'Dialog 移动端弹窗插件的自定义提示内容'
     });
 });
 ```
@@ -61,7 +61,7 @@ $(document).on('click', '#btn-01', function() {
             <td>'alert'</td>
             <td>弹窗的类型。
             alert: 确定; 
-            toast: 状态提示(基于toast，内置了success、error、warning、info、question、busy、wind7种模式); 
+            toast: 状态提示(基于toast，内置了loading、toast_success、toast_error、toast_warning、toast_info、toast_question、toast_busy、toast_wind 8种模式;基于notice，内置了notice_success、notice_error、notice_warning、notice_info 4种模式;); 
             notice: 提示信息</td>
         </tr>
         <tr>
@@ -165,6 +165,16 @@ $(document).on('click', '#btn-01', function() {
             <td>toast 与 notice 弹窗的提示文字, 会覆盖 content 的设置</td>
         </tr>
         <tr>
+            <td>infoColor</td>
+            <td>'#fff'</td>
+            <td>toast 与 notice 弹窗的文字颜色</td>
+        </tr>
+        <tr>
+            <td>infoBgColor</td>
+            <td>'rgba(0, 0, 0, 0.8)'</td>
+            <td> toast 与 notice 弹窗的背景颜色</td>
+        </tr>
+        <tr>
             <td>position</td>
             <td>'center'</td>
             <td>notice 弹窗的位置, center: 居中; bottom: 底部</td>
@@ -213,7 +223,6 @@ $(document).on('click', '#btn-01', function() {
             <td>function(){}</td>
             <td>弹窗关闭后的回调函数</td>
         </tr>
-
     </tbody>
 </table>
 
@@ -228,23 +237,26 @@ $(document).on('click', '#btn-01', function() {
 ## 目录结构
 ```
 .
+├─demo                      # demo示例页面
+│  ├─image                  # demo中的图片
+│  ├─lib                    # demo中用到的js插件
+│  ├─demo.html              # demo样例html文件
+│  └─style.css              #  demo中用到的css样式
 ├─dist                      # 项目发布资源目录, npm 生成
-│  ├─jdialog.css            # 弹出层 CSS 文件
-│  ├─jdialog_z.js           # 支持zepto的dialo.js文件
-│  └─jdialog_j.js           # 支持jquery的dialo.js文件
+│  ├─iconfont               # 弹出层的iconfont库
+│  ├─JoyDialog.css          # 弹出层 CSS 文件
+│  └─JoyDialog.js           # dialo.js文件
 ├─src                       # 实际进行开发的目录
 │  ├─css                    # 项目 CSS 文件 
-│  ├─demos                  # 项目示例页面
 │  ├─iconfont               # 项目 iconfont 文件
-│  ├─js                     # 项目 JS 文件
-│  │  ├─core.js             # 弹窗主要 JS
-│  │  ├─dialog.js           # dialog封装 JS
-│  │  ├─example.js          # 示例 JS
-│  │  └─util.js             # 工具 JS
-│  └─index.js               # 入口 JS
+│  └─js                     # 项目 JS 文件
+│    ├─core.js              # 弹窗主要 JS
+│    ├─dialog.js            # dialog封装 JS
+│    └─util.js              # 工具 JS
 │
-├─webpack.config.zepto.js    # webpack 打包配置
-└─package.json               # 项目信息以及依赖
+├─index.js                  # 入口 JS
+├─webpack.config.js         # webpack 打包配置
+└─package.json              # 项目信息以及依赖
 ```
 
 ## npm 使用方法
@@ -260,6 +272,6 @@ npm run serve
 
 **3、打包命令**
 ```
- npm run buildZepto  
+ npm run build  
 ```
 

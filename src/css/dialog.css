@@ -505,6 +505,12 @@
   -webkit-animation-name: fade-out;
   animation-name: fade-out;
 }
+.jdialog.dialog-notice-top .dialog-content {
+  top: 1.5rem;
+  -webkit-transform: translate(-50%, -1.25rem);
+  -ms-transform: translate(-50%, -1.25rem);
+      transform: translate(-50%, -1.25rem);
+}
 
 .jdialog.dialog-notice-bottom .dialog-content {
   top: auto;
@@ -513,7 +519,10 @@
   -ms-transform: translate(-50%, -1.25rem);
       transform: translate(-50%, -1.25rem);
 }
-
+.jdialog.dialog-notice-top.dialog-open .dialog-content,
+.jdialog.dialog-notice-top.dialog-open .dialog-overlay,
+.jdialog.dialog-notice-top.dialog-close .dialog-content,
+.jdialog.dialog-notice-top.dialog-close .dialog-overlay,
 .jdialog.dialog-notice-bottom.dialog-open .dialog-content,
 .jdialog.dialog-notice-bottom.dialog-open .dialog-overlay,
 .jdialog.dialog-notice-bottom.dialog-close .dialog-content,
@@ -524,11 +533,13 @@
   animation-fill-mode: forwards;
 }
 
+.jdialog.dialog-notice-top.dialog-open .dialog-content,
 .jdialog.dialog-notice-bottom.dialog-open .dialog-content {
   -webkit-animation-name: bounce-in-up;
   animation-name: bounce-in-up;
 }
 
+.jdialog.dialog-notice-top.dialog-close .dialog-content,
 .jdialog.dialog-notice-bottom.dialog-close .dialog-content {
   -webkit-animation-name: fade-out;
   animation-name: fade-out;
