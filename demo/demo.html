@@ -866,6 +866,7 @@ var jdia = JoyDialog({
             hljs.initHighlightingOnLoad();
             $.get('../README.md', function(response, status, xhr){
                 $("#instructions .panel-bd").html(marked(response));
+                $('#instructions table').attr('border',1).attr("cellspacing",0).css("border-collapse","collapse")
             });
             $('.button1').each(function(i,btn){
                 $(btn).click(function(){
@@ -873,6 +874,7 @@ var jdia = JoyDialog({
                     eval(code);
                 })
             })
+            
         })()
         
     </script>
