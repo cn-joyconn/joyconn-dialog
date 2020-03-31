@@ -4,6 +4,7 @@
   "description": "兼容jquery或zepto的弹出层",
   "main": "index.js",
   "scripts": {
+    "serve": "webpack-dev-server  --inline --hot --progress --colors --watch  --content-base . --open --open-page src/demo/demo.html",
     "build": "webpack"
   },
   "repository": {
@@ -21,6 +22,7 @@
   "dependencies": {
     "css-loader": "^3.4.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-webpack-plugin": "^4.0.3",
     "jquery": "^3.4.1",
     "n-zepto": "^1.2.0",
     "node-sass": "^4.13.1",
