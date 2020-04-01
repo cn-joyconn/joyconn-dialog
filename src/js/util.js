@@ -47,15 +47,18 @@ export function mobileUtil(window) {
     };
 }
 
-
-// IE 兼容方法
-if (typeof Object.assign != 'function') {
-  Object.assign = function(target) {
-    'use strict';
+export function ObjectAssign(target){
+  if (typeof Object.assign == 'function') {
+    for (var index = 1; index < arguments.length; index++) {
+      var source = arguments[index];
+      if (source != null) {
+        Object.assign(target,source);
+      }
+    }   
+  }else{
     if (target == null) {
       throw new TypeError('Cannot convert undefined or null to object');
     }
- 
     target = Object(target);
     for (var index = 1; index < arguments.length; index++) {
       var source = arguments[index];
@@ -67,6 +70,8 @@ if (typeof Object.assign != 'function') {
         }
       }
     }
-    return target;
-  };
+  }
+  return target;
 }
+
+

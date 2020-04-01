@@ -76,7 +76,6 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.css', '.json'],
   },
-
   devServer:{
     port:8088,
     // host:'0.0.0.0',
@@ -99,12 +98,13 @@ module.exports = {
           },
           compress: {
             warnings: false,
-            drop_debugger: false,
-            drop_console: false
+            drop_debugger: true,
+            drop_console: true
           }
         }
       }),
     ]
   },
+  
   // devtool: "inline-source-map"
 };

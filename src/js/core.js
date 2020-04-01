@@ -9,7 +9,8 @@
 
 import "../iconfont/font_1723954_2i2jtntm4tj/iconfont.css";
 import "../css/dialog.css";
-import { mobileUtil } from './util'
+import JDZepto from "n-zepto"
+import { mobileUtil,ObjectAssign } from './util'
 
 var clientObject = mobileUtil(window);
 /**
@@ -56,8 +57,7 @@ var dialog_defaults = {
          */
 function Dialog(options) {
     // var defaultOptions = JSON.parse(JSON.stringify(dialog_defaults))
-    this.settings = {};
-    Object.assign(this.settings, dialog_defaults, options);
+    this.settings = ObjectAssign( {}, dialog_defaults, options);
 }
 Dialog.prototype = {
     /**
@@ -77,9 +77,9 @@ Dialog.prototype = {
 
 
         // 创建弹窗显示时, 禁止 body 内容滚动的样式并且添加到 head
-        if ($('#dialog-body-no-scroll').length === 0) {
+        if (JDZepto('#dialog-body-no-scroll').length === 0) {
             var styleContent = '.body-no-scroll { position: absolute; overflow: hidden; width: 100%; }';
-            $('head').append('<style id="dialog-body-no-scroll">' + styleContent + '</style>');
+            JDZepto('head').append('<style id="dialog-body-no-scroll">' + styleContent + '</style>');
         }
 
         self._renderDOM();
@@ -104,7 +104,7 @@ Dialog.prototype = {
         var self = this;
 
         // 确定按钮关闭弹窗
-        self.$confirmBtn.on(clientObject.tapEvent, function (ev) {
+        self.jdz_confirmBtn.on(clientObject.tapEvent, function (ev) {
             var callback = self.settings.onClickConfirmBtn();
             if (callback || callback === undefined) {
                 self.closeDialog();
@@ -119,14 +119,14 @@ Dialog.prototype = {
             }
         }
         // 取消按钮关闭弹窗
-        self.$cancelBtn.on(clientObject.tapEvent, function (ev) {
+        self.jdz_cancelBtn.on(clientObject.tapEvent, function (ev) {
             cancelCloseDialog();
         }).on('touchend', function (ev) {
             ev.preventDefault();
         });
 
         // 关闭按钮关闭弹窗
-        self.$closeBtn.on(clientObject.tapEvent, function (ev) {
+        self.jdz_closeBtn.on(clientObject.tapEvent, function (ev) {
             cancelCloseDialog()
         }).on('touchend', function (ev) {
             ev.preventDefault();
@@ -134,7 +134,7 @@ Dialog.prototype = {
 
         // 遮罩层关闭弹窗
         if (self.settings.overlayClose) {
-            $(document).on(clientObject.tapEvent, '.dialog-overlay', function (ev) {
+            JDZepto(document).on(clientObject.tapEvent, '.dialog-overlay', function (ev) {
                 cancelCloseDialog()
             });
         }
@@ -146,7 +146,7 @@ Dialog.prototype = {
         }
 
         // 删除弹窗和 tap 点透 BUG 遮罩层, 在隐藏弹窗的动画结束后执行
-        $(document).on('webkitAnimationEnd MSAnimationEnd animationend', '.dialog-content', function () {
+        JDZepto(document).on('webkitAnimationEnd MSAnimationEnd animationend', '.dialog-content', function () {
             if (self.isHided) {
                 self.removeDialog();
 
@@ -158,8 +158,8 @@ Dialog.prototype = {
 
         // 为自定义按钮组绑定回调函数
         if (self.settings.buttons.length) {
-            $.each(self.settings.buttons, function (index, item) {
-                self.$dialogContentFt.children('button').eq(index).on(clientObject.tapEvent, function (ev) {
+            JDZepto.each(self.settings.buttons, function (index, item) {
+                self.jdz_dialogContentFt.children('button').eq(index).on(clientObject.tapEvent, function (ev) {
                     ev.preventDefault();
                     var callback = item.callback();
                     if (callback || callback === undefined) {
@@ -170,7 +170,7 @@ Dialog.prototype = {
         }
 
         // 如果弹窗有最大高度设置项, 在窗口大小改变时, 重新设置弹窗最大高度
-        $(window).on("onorientationchange" in window ? "orientationchange" : "resize", function () {
+        JDZepto(window).on("onorientationchange" in window ? "orientationchange" : "resize", function () {
             if (self.settings.contentScroll) {
                 setTimeout(function () {
                     self._resetDialog();
@@ -180,8 +180,8 @@ Dialog.prototype = {
 
 
         // 阻止 body 内容滑动
-        $(document).on('touchmove', function (e) {
-            if (self.$dialog.find($(e.target)).length) {
+        JDZepto(document).on('touchmove', function (e) {
+            if (self.jdz_dialog.find(JDZepto(e.target)).length) {
                 return false;
             } else {
                 return true;
@@ -196,7 +196,7 @@ Dialog.prototype = {
 
         // // 安卓风格的点击水波纹
         // if (self.dislogStyle === 'android') {
-        //     $('.dialog-content-ft > .dialog-btn').ripple();
+        //     JDZepto('.dialog-content-ft > .dialog-btn').ripple();
         // }
 
     },
@@ -208,15 +208,15 @@ Dialog.prototype = {
     _createDialogDOM: function (dialogType) {
         var self = this;
 
-        self.$dialog = $('<div class="jdialog dialog-open ' + self.settings.dialogClass + '" data-style="' + self.dislogStyle + '"></div>');
-        self.$dialogOverlay = $('<div class="dialog-overlay"></div>');
-        self.$dialogContent = $('<div class="dialog-content"></div>');
-        self.$dialogTitle = $('<div class="dialog-content-hd"><h3 class="dialog-content-title">' + self.settings.titleText + '</h3></div>');
-        self.$dialogContentFt = $('<div class="dialog-content-ft"></div>');
-        self.$dialogContentBd = $('<div class="dialog-content-bd"></div>');
-        self.$closeBtn = $('<div class="dialog-btn-close"><span>close</span></div>');
-        self.$confirmBtn = $('<button class="dialog-btn dialog-btn-confirm ' + self.settings.buttonClassConfirm + '">' + self.settings.buttonTextConfirm + '</button>');
-        self.$cancelBtn = $('<button class="dialog-btn dialog-btn-cancel ' + self.settings.buttonClassCancel + '">' + self.settings.buttonTextCancel + '</button>');
+        self.jdz_dialog = JDZepto('<div class="jdialog dialog-open ' + self.settings.dialogClass + '" data-style="' + self.dislogStyle + '"></div>');
+        self.jdz_dialogOverlay = JDZepto('<div class="dialog-overlay"></div>');
+        self.jdz_dialogContent = JDZepto('<div class="dialog-content"></div>');
+        self.jdz_dialogTitle = JDZepto('<div class="dialog-content-hd"><h3 class="dialog-content-title">' + self.settings.titleText + '</h3></div>');
+        self.jdz_dialogContentFt = JDZepto('<div class="dialog-content-ft"></div>');
+        self.jdz_dialogContentBd = JDZepto('<div class="dialog-content-bd"></div>');
+        self.jdz_closeBtn = JDZepto('<div class="dialog-btn-close"><span>close</span></div>');
+        self.jdz_confirmBtn = JDZepto('<button class="dialog-btn dialog-btn-confirm ' + self.settings.buttonClassConfirm + '">' + self.settings.buttonTextConfirm + '</button>');
+        self.jdz_cancelBtn = JDZepto('<button class="dialog-btn dialog-btn-cancel ' + self.settings.buttonClassCancel + '">' + self.settings.buttonTextCancel + '</button>');
 
         switch (dialogType) {
             case 'alert':
@@ -272,42 +272,42 @@ Dialog.prototype = {
     //alert型显示
     _createDialogAlertTypeDOM:function(self, alertType){
         // 添加 alert 类型弹窗标识
-        self.$dialog.addClass('dialog-modal');
+        self.jdz_dialog.addClass('dialog-modal');
 
         // 显示遮罩层
         if (self.settings.overlayShow) {
-            self.$dialog.append(self.$dialogOverlay);
+            self.jdz_dialog.append(self.jdz_dialogOverlay);
         }
         // 显示标题
         if (self.settings.titleShow) {
-            self.$dialogContent.append(self.$dialogTitle);
+            self.jdz_dialogContent.append(self.jdz_dialogTitle);
         }
         // 显示关闭按钮
         if (self.settings.closeBtnShow) {
-            self.$dialogTitle.append(self.$closeBtn);
+            self.jdz_dialogTitle.append(self.jdz_closeBtn);
         }
         if (self.settings.buttons.length) {
             var buttonGroupHtml = '';
-            $.each(self.settings.buttons, function (index, item) {
+            JDZepto.each(self.settings.buttons, function (index, item) {
                 buttonGroupHtml += '<button class="dialog-btn ' + item.class + '">' + item.name + '</button>';
 
             });
-            self.$dialogContentFt.append(buttonGroupHtml).addClass(self.settings.buttonStyle);
+            self.jdz_dialogContentFt.append(buttonGroupHtml).addClass(self.settings.buttonStyle);
         }
         if (self.settings.buttonTextCancel) {
-            self.$dialogContentFt.append(self.$cancelBtn).addClass(self.settings.buttonStyle);
+            self.jdz_dialogContentFt.append(self.jdz_cancelBtn).addClass(self.settings.buttonStyle);
         }
         if (self.settings.buttonTextConfirm) {
-            self.$dialogContentFt.append(self.$confirmBtn).addClass(self.settings.buttonStyle);
+            self.jdz_dialogContentFt.append(self.jdz_confirmBtn).addClass(self.settings.buttonStyle);
         }
 
-        self.$dialogContentBd.append(self.settings.content);
-        self.$dialogContent.append(self.$dialogContentBd).append(self.$dialogContentFt);
-        self.$dialog.append(self.$dialogContent);
-        $('body').append(self.$dialog);
+        self.jdz_dialogContentBd.append(self.settings.content);
+        self.jdz_dialogContent.append(self.jdz_dialogContentBd).append(self.jdz_dialogContentFt);
+        self.jdz_dialog.append(self.jdz_dialogContent);
+        JDZepto('body').append(self.jdz_dialog);
 
         if (self.settings.bodyNoScroll) {
-            $('body').addClass('body-no-scroll');
+            JDZepto('body').addClass('body-no-scroll');
         }
 
         // 设置弹窗提示内容最大高度
@@ -319,7 +319,7 @@ Dialog.prototype = {
     //toast型显示
     _createDialogToastTypeDOM:function(self, toastType) {
         // 添加 toast 类型弹窗标识
-        self.$dialog.addClass('dialog-toast');
+        self.jdz_dialog.addClass('dialog-toast');
 
         //自动关闭
         if (!self.settings.autoClose) {
@@ -327,7 +327,7 @@ Dialog.prototype = {
         }
         // 显示遮罩层
         if (self.settings.overlayShow) {
-            self.$dialog.append(self.$dialogOverlay);
+            self.jdz_dialog.append(self.jdz_dialogOverlay);
         }
 
         // 弹窗内容 HTML, 默认为 content; 如果设置 icon 与 text, 则覆盖 content 的设置
@@ -394,21 +394,21 @@ Dialog.prototype = {
                 toastContentHtmlStr += '<span class="info-text"  style="color:' + infoColor + ';">' + self.settings.infoText + '</span>';
             }
         }
-        var toastContentHtml = $(toastContentHtmlStr);
-        self.$dialogContentBd.append(toastContentHtml);
-        self.$dialogContent.append(self.$dialogContentBd);
-        self.$dialog.append(self.$dialogContent);
-        self.$dialogContent.css("background-color", infoBgColor)
-        $('body').append(self.$dialog);
+        var toastContentHtml = JDZepto(toastContentHtmlStr);
+        self.jdz_dialogContentBd.append(toastContentHtml);
+        self.jdz_dialogContent.append(self.jdz_dialogContentBd);
+        self.jdz_dialog.append(self.jdz_dialogContent);
+        self.jdz_dialogContent.css("background-color", infoBgColor)
+        JDZepto('body').append(self.jdz_dialog);
 
         if (self.settings.bodyNoScroll) {
-            $('body').addClass('body-no-scroll');
+            JDZepto('body').addClass('body-no-scroll');
         }
     },
     //notice型显示
     _createDialogNoticeTypeDOM:function(self, noticeType) {
         // 添加 toast 类型弹窗标识
-        self.$dialog.addClass('dialog-notice');
+        self.jdz_dialog.addClass('dialog-notice');
 
         //自动关闭
         if (!self.settings.autoClose) {
@@ -416,14 +416,14 @@ Dialog.prototype = {
         }
         // 底部显示的 toast
         if (self.settings.position === 'bottom') {
-            self.$dialog.addClass('dialog-notice-bottom');
+            self.jdz_dialog.addClass('dialog-notice-bottom');
         } else if (self.settings.position === 'top') {
-            self.$dialog.addClass('dialog-notice-top');
+            self.jdz_dialog.addClass('dialog-notice-top');
         }
 
         // 显示遮罩层
         if (self.settings.overlayShow) {
-            self.$dialog.append(self.$dialogOverlay);
+            self.jdz_dialog.append(self.jdz_dialogOverlay);
         }
 
 
@@ -481,16 +481,16 @@ Dialog.prototype = {
         }
 
         // 弹窗内容 HTML, 默认为 content; 如果设置 icon 与 text, 则覆盖 content 的设置
-        var noticeContentHtml = $(toastContentHtmlStr);
+        var noticeContentHtml = JDZepto(toastContentHtmlStr);
 
-        self.$dialogContentBd.append(noticeContentHtml);
-        self.$dialogContent.append(self.$dialogContentBd);
-        self.$dialog.append(self.$dialogContent);
-        self.$dialogContent.css("background-color", infoBgColor)
-        $('body').append(self.$dialog);
+        self.jdz_dialogContentBd.append(noticeContentHtml);
+        self.jdz_dialogContent.append(self.jdz_dialogContentBd);
+        self.jdz_dialog.append(self.jdz_dialogContent);
+        self.jdz_dialogContent.css("background-color", infoBgColor)
+        JDZepto('body').append(self.jdz_dialog);
 
         if (self.settings.bodyNoScroll) {
-            $('body').addClass('body-no-scroll');
+            JDZepto('body').addClass('body-no-scroll');
         }
     },
     /**
@@ -501,18 +501,18 @@ Dialog.prototype = {
         var self = this;
 
         setTimeout(function () {
-            var dialogDefaultContentHeight = self.$dialogContentBd.height();
+            var dialogDefaultContentHeight = self.jdz_dialogContentBd.height();
             var dialogContentMaxHeight = self._getDialogContentMaxHeight();
 
-            self.$dialogContentBd.css({
+            self.jdz_dialogContentBd.css({
                 'max-height': dialogContentMaxHeight,
             }).addClass('content-scroll');
 
             // 提示内容大于最大高度时, 添加底部按钮顶部边框线标识 class; 反之, 删除
             if (dialogDefaultContentHeight > dialogContentMaxHeight) {
-                self.$dialogContentFt.addClass('dialog-content-ft-border');
+                self.jdz_dialogContentFt.addClass('dialog-content-ft-border');
             } else {
-                self.$dialogContentFt.removeClass('dialog-content-ft-border');
+                self.jdz_dialogContentFt.removeClass('dialog-content-ft-border');
             }
 
         }, 80);
@@ -524,9 +524,9 @@ Dialog.prototype = {
      */
     _getDialogContentMaxHeight: function () {
         var self = this;
-        var winHeight = $(window).height(),
-            dialogContentHdHeight = self.$dialogTitle.height(),
-            dialogContentFtHeight = self.$dialogContentFt.height(),
+        var winHeight = JDZepto(window).height(),
+            dialogContentHdHeight = self.jdz_dialogTitle.height(),
+            dialogContentFtHeight = self.jdz_dialogContentFt.height(),
             dialogContentBdHeight = winHeight - dialogContentHdHeight - dialogContentFtHeight - 60;
 
         // 最大高度取偶数
@@ -558,15 +558,15 @@ Dialog.prototype = {
         };
 
         // 监听滑动相关事件
-        $(document)
+        JDZepto(document)
             .on('touchstart mousedown', '.content-scroll', function (ev) {
                 var touch = ev.changedTouches ? ev.changedTouches[0] : ev;
 
                 isTouchDown = true;
                 position.x = touch.clientX;
                 position.y = touch.clientY;
-                position.top = $(this).scrollTop();
-                position.left = $(this).scrollLeft();
+                position.top = JDZepto(this).scrollTop();
+                position.left = JDZepto(this).scrollLeft();
                 // return false;
             })
             .on('touchmove mousemove', '.content-scroll', function (ev) {
@@ -580,7 +580,7 @@ Dialog.prototype = {
                     var moveTop = position.top - (touch.clientY - position.y);
                     var moveLeft = position.left - (touch.clientX - position.x);
 
-                    $(this).scrollTop(moveTop).scrollLeft(moveLeft);
+                    JDZepto(this).scrollTop(moveTop).scrollLeft(moveLeft);
                 }
             })
             .on('touchend mouseup', '.content-scroll', function (ev) {
@@ -609,7 +609,7 @@ Dialog.prototype = {
 
         self.isHided = true;
         self.settings.onBeforeClosed();
-        self.$dialog.addClass('dialog-close').removeClass('dialog-open');
+        self.jdz_dialog.addClass('dialog-close').removeClass('dialog-open');
 
         if (self.tapBug) {
             self._appendTapOverlayer();
@@ -622,15 +622,15 @@ Dialog.prototype = {
      */
     removeDialog: function () {
         var self = this;
-        self.$dialogContent.html('');
-        self.$dialog.remove();
+        self.jdz_dialogContent.html('');
+        self.jdz_dialog.remove();
         self.isHided = false;
         self.settings.onClosed();
         // 重新初始化默认配置
         self.settings = dialog_defaults;
 
         if (self.settings.bodyNoScroll) {
-            $('body').removeClass('body-no-scroll');
+            JDZepto('body').removeClass('body-no-scroll');
         }
     },
 
@@ -650,19 +650,19 @@ Dialog.prototype = {
         clearTimeout(self.autoCloseTimer);
 
         // 设置默认值，并且指向给对象的默认值
-        self.settings = Object.assign(dialog_defaults, settings);
-
+        self.settings = ObjectAssign({},dialog_defaults, settings);
+        console.info(self.settings)
         // 通过 content 更改弹窗内容
         if (self.settings.content !== '') {
-            self.$dialogContentBd.html('');
-            self.$dialogContentBd.append(self.settings.content);
+            self.jdz_dialogContentBd.html('');
+            self.jdz_dialogContentBd.append(self.settings.content);
         }
 
         // 通过设置 infoIcon 与 infoText 更改弹窗内容, 会覆盖 content 的设置
-        var $infoIcon = self.$dialogContentBd.find('.info-icon');
-        var $infoText = self.$dialogContentBd.find('.info-text');
-        $infoIcon.attr({ 'src': self.settings.infoIcon });
-        $infoText.html(self.settings.infoText);
+        var jdz_infoIcon = self.jdz_dialogContentBd.find('.info-icon');
+        var jdz_infoText = self.jdz_dialogContentBd.find('.info-text');
+        jdz_infoIcon.attr({ 'src': self.settings.infoIcon });
+        jdz_infoText.html(self.settings.infoText);
 
         // 重新为更改后的 DOM 元素绑定事件
         self._bindEvents();
@@ -684,11 +684,11 @@ Dialog.prototype = {
     _appendTapOverlayer: function () {
         var self = this;
 
-        self.$tapBugOverlayer = $('.solve-tap-bug');
+        self.jdz_tapBugOverlayer = JDZepto('.solve-tap-bug');
 
-        if (!self.$tapBugOverlayer.length) {
-            self.$tapBugOverlayer = $('<div class="solve-tap-bug" style="margin:0;padding:0;border:0;background:rgba(0,0,0,0);-webkit-tap-highlight-color:rgba(0,0,0,0);width:100%;height:100%;position:fixed;top:0;left:0;"></div>');
-            $('body').append(self.$tapBugOverlayer);
+        if (!self.jdz_tapBugOverlayer.length) {
+            self.jdz_tapBugOverlayer = JDZepto('<div class="solve-tap-bug" style="margin:0;padding:0;border:0;background:rgba(0,0,0,0);-webkit-tap-highlight-color:rgba(0,0,0,0);width:100%;height:100%;position:fixed;top:0;left:0;"></div>');
+            JDZepto('body').append(self.jdz_tapBugOverlayer);
         }
     },
 
@@ -699,7 +699,7 @@ Dialog.prototype = {
         var self = this;
 
         setTimeout(function () {
-            self.$tapBugOverlayer.remove();
+            self.jdz_tapBugOverlayer.remove();
         }, 350);
     }
 };
