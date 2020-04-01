@@ -556,7 +556,7 @@ Dialog.prototype = {
                     }else if(p=='center'){
                         $(d).find('.dialog-content').css('top', ((win_height-total_height)/2 + height)+'px;')
                     }
-                    $(d).find('.dialog-content').width(max_width)
+                    // $(d).find('.dialog-content').width(max_width)//统一宽度，这个在IE下存在换行的bug。先搁置
                     height += $(d).find('.dialog-content').height() + 10;
                 })
                

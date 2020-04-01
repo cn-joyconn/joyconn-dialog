@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JoyDialog</title>
+    <link rel="stylesheet" href="../dist/JoyDialog.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="../dist/JoyDialog.js"></script>
+
+
+</head>
+
+<body>
+    <div class="page">
+        <div class="wrapper clearfix">
+            <div class="main">
+                <button class="button button1" type="button" onclick="showDialog()">显示弹窗</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showDialog() {
+            JoyDialog({
+                type: 'notice_success',
+                infoText: '执行成功',
+                autoClose: 60000,
+                position: 'top'  // top:顶部; center: 居中; bottom: 底部
+            });
+        }
+
+    </script>
+</body>
+
+</html>
