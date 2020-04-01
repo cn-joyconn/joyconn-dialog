@@ -181,8 +181,8 @@ $(document).on('click', '#btn-01', function() {
         </tr>
         <tr>
             <td>position</td>
-            <td>'center'</td>
-            <td>notice 弹窗的位置, center: 居中; bottom: 底部</td>
+            <td>'top'</td>
+            <td>notice 弹窗的位置, center: 居中; bottom: 底部; top: 底部</td>
         </tr>
     </tbody>
 </table>

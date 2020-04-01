@@ -42,7 +42,7 @@ var dialog_defaults = {
     infoText: '',        // toast 与 notice 弹窗的提示文字, 会覆盖 content 的设置
     infoColor: '',// toast 与 notice 弹窗的文字颜色,默认:#fff
     infoBgColor: '',// toast 与 notice 弹窗的背景颜色,默认:rgba(0, 0, 0, 0.8);
-    position: 'center',  // notice 弹窗的位置, [ center: 居中; bottom: 底部 ]
+    position: 'center',  // notice 弹窗的位置, [top:'顶部', center: 居中; bottom: 底部 ]
 
     onClickConfirmBtn: function () { },  // “确定”按钮的回调函数
     onClickCancelBtn: function () { },  // “取消”按钮的回调函数
@@ -421,10 +421,10 @@ Dialog.prototype = {
         // 底部显示的 toast
         if (self.settings.position === 'bottom') {
             self.jdz_dialog.addClass('dialog-notice-bottom');
-        } else if (self.settings.position === 'top') {
-            self.jdz_dialog.addClass('dialog-notice-top');
-        }else{            
+        } else if (self.settings.position === 'center') {            
             self.jdz_dialog.addClass('dialog-notice-center');
+        }else {
+            self.jdz_dialog.addClass('dialog-notice-top');
         }
 
         // 显示遮罩层
