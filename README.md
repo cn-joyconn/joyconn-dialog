@@ -26,8 +26,8 @@ pc、移动端弹窗插件第二版，包括常见的 alert、toast、notice 类
 
 **2、npm引入方式**
 ```javascript
-//这种方式暂时只提供zepto版本
 npm install --save-dev joyconn-dialog
+import {JoyDialog} from "joyconn-dialog"
 ```
 
 **3、HTML 结构**
