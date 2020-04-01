@@ -324,7 +324,7 @@ Dialog.prototype = {
         self.jdz_dialog.addClass('dialog-toast');
 
         //自动关闭
-        if (!self.settings.autoClose) {
+        if (self.userOptions.autoClose!=0 && !self.settings.autoClose) {
             self.settings.autoClose=2000;
         }
         // 显示遮罩层
@@ -414,8 +414,8 @@ Dialog.prototype = {
         // if(typeof self.userOptions.overlayShow == 'undefined'){
         //     self.settings.overlayShow=false;
         // }
-        //自动关闭
-        if (!self.settings.autoClose) {
+        //自动关闭        
+        if (self.userOptions.autoClose!=0 && !self.settings.autoClose) {
             self.settings.autoClose=2000;
         }
         // 底部显示的 toast
