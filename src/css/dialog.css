@@ -506,7 +506,7 @@
   animation-name: fade-out;
 }
 .jdialog.dialog-notice-top .dialog-content {
-  top: 1.5rem;
+  margin-top: 1.5rem;
   -webkit-transform: translate(-50%, -1.25rem);
   -ms-transform: translate(-50%, -1.25rem);
       transform: translate(-50%, -1.25rem);

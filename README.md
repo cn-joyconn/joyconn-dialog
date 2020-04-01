@@ -1,12 +1,12 @@
 # JDialog
 
-pc、移动端弹窗插件第二版，包括常见的 alert、toast、notice 类型弹窗，支持 jQuery 和 Zepto 库。
+pc、移动端弹窗插件第二版，包括常见的 alert、toast、notice 类型弹窗。
 
 ### 特性
 + 支持常见的 alert、toast、notice 类型弹窗
++ 兼容IE9+、chrome、firefox、safari
 + 可自定义按钮的文字、样式、回调函数，支持多个按钮
 + 多个弹窗状态改变回调函数
-+ 同时支持 jQuery 和 Zepto 库
 + 可扩展性强
 + 可自定义多个按钮
 

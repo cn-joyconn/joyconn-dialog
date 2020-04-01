@@ -576,8 +576,7 @@ setTimeout(function(){
                                             <code class="javascript">
 JoyDialog({
     type : 'toast_success',
-    infoText: '执行成功',
-    autoClose: 2500
+    infoText: '执行成功'
 });
                                             </code>
                                         </pre>
@@ -596,8 +595,7 @@ JoyDialog({
                                             <code class="javascript">
 JoyDialog({
     type : 'toast_warning',
-    infoText: '这是警告',
-    autoClose: 2500
+    infoText: '这是警告'
 });
                                             </code>
                                         </pre>
@@ -616,8 +614,7 @@ JoyDialog({
                                             <code class="javascript">
 JoyDialog({
     type : 'toast_info',
-    infoText: '执行完成',
-    autoClose: 2500
+    infoText: '执行完成'
 });
                                             </code>
                                         </pre>
@@ -636,8 +633,7 @@ JoyDialog({
                                             <code class="javascript">
 JoyDialog({
     type : 'toast_error',
-    infoText: '执行失败',
-    autoClose: 2500
+    infoText: '执行失败'
 });
                                             </code>
                                         </pre>
@@ -656,8 +652,7 @@ JoyDialog({
                                             <code class="javascript">
 JoyDialog({
     type : 'toast_wind',
-    infoText: '遇到风险',
-    autoClose: 2500
+    infoText: '遇到风险'
 });
                                             </code>
                                         </pre>
@@ -676,8 +671,7 @@ JoyDialog({
                                             <code class="javascript">
 JoyDialog({
     type : 'toast_question',
-    infoText: '这是个问题',
-    autoClose: 2500
+    infoText: '这是个问题'
 });
                                             </code>
                                         </pre>
@@ -696,8 +690,7 @@ JoyDialog({
                                             <code class="javascript">
 JoyDialog({
     type : 'toast_busy',
-    infoText: '服务器忙',
-    autoClose: 2500
+    infoText: '服务器忙'
 });
                                             </code>
                                         </pre>
@@ -759,7 +752,6 @@ JoyDialog({
 JoyDialog({
     type : 'notice_info',
     infoText: '这是一个通知',
-    autoClose: 2500,
     position: 'top'  // top:顶部; center: 居中; bottom: 底部
 });
                                             </code>
@@ -780,7 +772,6 @@ JoyDialog({
 JoyDialog({
     type : 'notice_success',
     infoText: '执行成功',
-    autoClose: 2500,
     position: 'top'  // top:顶部; center: 居中; bottom: 底部
 });
                                             </code>
@@ -801,7 +792,6 @@ JoyDialog({
 JoyDialog({
     type : 'notice_warning',
     infoText: '这是一个警告',
-    autoClose: 2500,
     position: 'top'  // top:顶部; center: 居中; bottom: 底部
 });
                                             </code>
@@ -822,9 +812,42 @@ JoyDialog({
 JoyDialog({
     type : 'notice_error',
     infoText: '执行失败',
-    autoClose: 2500,
     position: 'top'  // top:顶部; center: 居中; bottom: 底部
 });
+
+                                            </code>
+                                        </pre>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="example-item" >
+                                <h3 class="example-name">Notice  类型 - 弹出多个</h3>
+                                <div class="example-show">
+                                    <button  class="button button1" type="button">显示弹窗</button>
+                                </div>
+                                <div class="example-code">
+                                    <div class="hl-section">
+                                        <pre>
+                                            <code class="javascript">
+JoyDialog({
+    type : 'notice_error',
+    infoText: '执行失败',
+    position: 'top'  // top:顶部; center: 居中; bottom: 底部
+});
+JoyDialog({
+    type : 'notice_warning',
+    infoText: '这是一个警告',
+    autoClose:4000,
+    position: 'top'  // top:顶部; center: 居中; bottom: 底部
+});
+JoyDialog({
+    type : 'notice_success',
+    infoText: '执行成功',
+    autoClose:6000,
+    position: 'top'  // top:顶部; center: 居中; bottom: 底部
+});
+
                                             </code>
                                         </pre>
                                     </div>

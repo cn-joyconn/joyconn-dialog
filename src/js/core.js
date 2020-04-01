@@ -57,6 +57,7 @@ var dialog_defaults = {
          */
 function Dialog(options) {
     // var defaultOptions = JSON.parse(JSON.stringify(dialog_defaults))
+    this.userOptions=options;
     this.settings = ObjectAssign( {}, dialog_defaults, options);
 }
 Dialog.prototype = {
@@ -95,6 +96,7 @@ Dialog.prototype = {
         self.settings.onBeforeShow();
         self._createDialogDOM(self.settings.type);
         self.settings.onShow();
+        self._setNoticeContentMargin();
     },
 
     /**
@@ -409,7 +411,9 @@ Dialog.prototype = {
     _createDialogNoticeTypeDOM:function(self, noticeType) {
         // 添加 toast 类型弹窗标识
         self.jdz_dialog.addClass('dialog-notice');
-
+        // if(typeof self.userOptions.overlayShow == 'undefined'){
+        //     self.settings.overlayShow=false;
+        // }
         //自动关闭
         if (!self.settings.autoClose) {
             self.settings.autoClose=2000;
@@ -419,6 +423,8 @@ Dialog.prototype = {
             self.jdz_dialog.addClass('dialog-notice-bottom');
         } else if (self.settings.position === 'top') {
             self.jdz_dialog.addClass('dialog-notice-top');
+        }else{            
+            self.jdz_dialog.addClass('dialog-notice-center');
         }
 
         // 显示遮罩层
@@ -439,25 +445,25 @@ Dialog.prototype = {
                     iconfontValue = "icon-failure_toast";
                     color = "#d81e06";
                     infoColor = "#d81e06";
-                    infoBgColor = "rgba(255, 130, 106, 0.4);";
+                    infoBgColor = "rgba(255, 130, 106, 0.6);";
                     break;
                 case 'notice_warning':
                     iconfontValue = "icon-alert_toast";
                     color = "#DAA520";
                     infoColor = "#DAA520";
-                    infoBgColor = "rgba(238,232,170, 0.4);";
+                    infoBgColor = "rgba(238,232,170, 0.6);";
                     break;
                 case 'notice_info':
                     iconfontValue = "icon-info";
                     color = "#4682B4";
                     infoColor = "#4682B4";
-                    infoBgColor = "rgba(175,238,238, 0.4);";
+                    infoBgColor = "rgba(175,238,238, 0.6);";
                     break;
                 case 'notice_success':
                     iconfontValue = "icon-success_toast";
                     color = "#58b20f";
                     infoColor = "#58b20f";
-                    infoBgColor = "rgba(148, 248, 85, 0.4);";
+                    infoBgColor = "rgba(148, 248, 85, 0.6);";
                     break;
             }
             if (self.settings.infoColor) {
@@ -517,7 +523,46 @@ Dialog.prototype = {
 
         }, 80);
     },
-
+    /**
+     * notice 弹出多个调整位置
+     */
+    _setNoticeContentMargin:function(){
+        var positions=['top','center','bottom'];
+        var height = 0;
+        var win_height = $(window).height();
+        var total_height = 0;
+        var max_width = 0;
+        $.each(positions,function(i,p){
+            height=0;
+            total_height = 0;
+            max_width = 0;
+            var notice_dialogs=$('.dialog-notice-'+p);
+            if(notice_dialogs.length>0){
+                $.each(notice_dialogs,function(j,d){
+                    total_height += $(d).find('.dialog-content').height() + (j==0?0:10);
+                    max_width = $(d).find('.dialog-content').width() > max_width? $(d).find('.dialog-content').width() :max_width;
+                    // if($(d).find('.dialog-overlay').length==0){
+                    //     $(d).height( $(d).find('.dialog-content').height())
+                    // }
+                })
+                if(p=="center"){
+                    console.info("total_height",total_height)
+                }
+                $.each(notice_dialogs,function(j,d){
+                    if(p=='top'){
+                        $(d).find('.dialog-content').css('top',height+'px;')
+                    }else if(p=='bottom'){
+                        $(d).find('.dialog-content').css('bottom',height+'px;')
+                    }else if(p=='center'){
+                        $(d).find('.dialog-content').css('top', ((win_height-total_height)/2 + height)+'px;')
+                    }
+                    $(d).find('.dialog-content').width(max_width)
+                    height += $(d).find('.dialog-content').height() + 10;
+                })
+               
+            }
+        })
+    },
     /**
      * 获取弹窗内容最大高度
      * @return height
@@ -639,6 +684,8 @@ Dialog.prototype = {
         if (self.settings.bodyNoScroll) {
             JDZepto('body').removeClass('body-no-scroll');
         }
+        
+        self._setNoticeContentMargin();
     },
 
     /**
@@ -672,7 +719,8 @@ Dialog.prototype = {
         jdz_infoText.html(self.settings.infoText);
 
         // 重新为更改后的 DOM 元素绑定事件
-        self._bindEvents();
+        self._bindEvents();        
+        self._setNoticeContentMargin();
     },
     
 
