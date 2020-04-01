@@ -15,7 +15,7 @@ var clientObject = mobileUtil(window);
 /**
  * 插件默认值
  */
-const dialog_defaults = {
+var dialog_defaults = {
     type: 'alert',   // 弹窗的类型 [ alert: 确定; confirm: 确定/取消; toast: 状态提示; notice: 提示信息 ]
     style: 'default', // alert 与 confirm 弹窗的风格 [ default: 根据访问设备平台; ios: ios 风格; android: MD design 风格 ]
     titleShow: true,      // 是否显示标题
@@ -270,7 +270,7 @@ Dialog.prototype = {
         }
     },
     //alert型显示
-    _createDialogAlertTypeDOM(self, alertType) {
+    _createDialogAlertTypeDOM:function(self, alertType){
         // 添加 alert 类型弹窗标识
         self.$dialog.addClass('dialog-modal');
 
@@ -317,10 +317,14 @@ Dialog.prototype = {
 
     },
     //toast型显示
-    _createDialogToastTypeDOM(self, toastType) {
+    _createDialogToastTypeDOM:function(self, toastType) {
         // 添加 toast 类型弹窗标识
         self.$dialog.addClass('dialog-toast');
 
+        //自动关闭
+        if (!self.settings.autoClose) {
+            self.settings.autoClose=2000;
+        }
         // 显示遮罩层
         if (self.settings.overlayShow) {
             self.$dialog.append(self.$dialogOverlay);
@@ -402,10 +406,14 @@ Dialog.prototype = {
         }
     },
     //notice型显示
-    _createDialogNoticeTypeDOM(self, noticeType) {
+    _createDialogNoticeTypeDOM:function(self, noticeType) {
         // 添加 toast 类型弹窗标识
         self.$dialog.addClass('dialog-notice');
 
+        //自动关闭
+        if (!self.settings.autoClose) {
+            self.settings.autoClose=2000;
+        }
         // 底部显示的 toast
         if (self.settings.position === 'bottom') {
             self.$dialog.addClass('dialog-notice-bottom');
@@ -659,6 +667,7 @@ Dialog.prototype = {
         // 重新为更改后的 DOM 元素绑定事件
         self._bindEvents();
     },
+    
 
     /**
      * 是否有点透 BUG 

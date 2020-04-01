@@ -1,21 +1,4 @@
-export function loadJS(url, callback, render) {
-  const loaderScript = document.createElement('script');
-  loaderScript.type = 'text/javascript';
-  loaderScript.src = url;
-  loaderScript.addEventListener('load', () => {
-    if (callback) {
-      callback();
-    }
-    if (render) {
-      Store.set('LT:render', true);
-    }
-  });
-
-  document.body.appendChild(loaderScript);
-}
-
-
-  /**----------------------------
+ /**----------------------------
    *  私有方法
    ----------------------------*/
   /** 
@@ -62,4 +45,28 @@ export function mobileUtil(window) {
         isSupportTouch: isSupportTouch,
         tapEvent: isMobile && isSupportTouch ? 'tapEvent' : 'click'
     };
+}
+
+
+// IE 兼容方法
+if (typeof Object.assign != 'function') {
+  Object.assign = function(target) {
+    'use strict';
+    if (target == null) {
+      throw new TypeError('Cannot convert undefined or null to object');
+    }
+ 
+    target = Object(target);
+    for (var index = 1; index < arguments.length; index++) {
+      var source = arguments[index];
+      if (source != null) {
+        for (var key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = source[key];
+          }
+        }
+      }
+    }
+    return target;
+  };
 }

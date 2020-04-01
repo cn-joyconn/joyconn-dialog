@@ -1,18 +1,20 @@
+var webpack = require("webpack")
 const path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// import "babel-polyfill";
 
 // const webpack = require('webpack');
 module.exports = {
   mode: 'production',
-  entry: './index.js',
+  entry: ['./index.js'],
   output: {
     path: path.resolve(__dirname, '.'),
     filename: './dist/JoyDialog.js',
-    library: 'MA',
-    libraryTarget: 'umd'
+    // library: 'MA',
+    // libraryTarget: 'umd'
   },
   module: {
     rules: [
@@ -97,7 +99,7 @@ module.exports = {
           },
           compress: {
             warnings: false,
-            drop_debugger: true,
+            drop_debugger: false,
             drop_console: false
           }
         }

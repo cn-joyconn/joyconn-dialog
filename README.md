@@ -61,7 +61,9 @@ $(document).on('click', '#btn-01', function() {
             <td>'alert'</td>
             <td>弹窗的类型。
             alert: 确定; 
-            toast: 状态提示(基于toast，内置了loading、toast_success、toast_error、toast_warning、toast_info、toast_question、toast_busy、toast_wind 8种模式;基于notice，内置了notice_success、notice_error、notice_warning、notice_info 4种模式;); 
+            toast: 状态提示
+            <br />基于toast，内置了loading、toast_success、toast_error、toast_warning、toast_info、toast_question、toast_busy、toast_wind 8种模式;
+            <br />基于notice，内置了notice_success、notice_error、notice_warning、notice_info 4种模式; 
             notice: 提示信息</td>
         </tr>
         <tr>
@@ -107,7 +109,10 @@ $(document).on('click', '#btn-01', function() {
         <tr>
             <td>autoClose</td>
             <td>0</td>
-            <td>弹窗自动关闭的延迟时间(毫秒)。<br />0: 不自动关闭; 大于0: 自动关闭弹窗的延迟时间</td>
+            <td>弹窗自动关闭的延迟时间(毫秒)。<br />
+                0: 不自动关闭; 大于0: 自动关闭弹窗的延迟时间<br />
+                toast、notice默认2000毫秒
+            </td>
         </tr>
         <tr>
             <td>overlayShow</td>
@@ -230,8 +235,8 @@ $(document).on('click', '#btn-01', function() {
 ## 方法
 | 方法            | 说明  |
 | :--------       | :----  |
-|obj.close |关闭对话框。<br />用法：dialogObj.close() |
-| obj.update | 更改 toast 和 notice 类型弹窗内容 ( 图标以及提示文字 )<br />可传入参数：<br>content: 弹窗内容, 可以是HTML <br>                infoIcon: 弹窗提示图标<br>infoText: 弹窗提示文字<br>autoClose: 自动关闭的延迟时间<br>onBeforeClosed: 关闭前回调函数<br>onClosed: 关闭后回调函数  |
+|obj.close  |关闭对话框。<br />用法：dialogObj.close() |
+|obj.update | 更改弹窗内容 ( 图标以及提示文字 )<br />可传入参数：<br>content: 弹窗内容, 可以是HTML <br>                infoIcon: 弹窗提示图标<br>infoText: 弹窗提示文字<br>autoClose: 自动关闭的延迟时间<br>onBeforeClosed: 关闭前回调函数<br>onClosed: 关闭后回调函数  |
 
 
 ## 目录结构
