@@ -10,9 +10,9 @@
 import "../iconfont/font_1723954_2i2jtntm4tj/iconfont.css";
 import "../css/dialog.css";
 import JDZepto from "n-zepto"
-import { mobileUtil,ObjectAssign } from './util'
+import { clientUtil,ObjectAssign } from './util'
 
-var clientObject = mobileUtil(window);
+var clientObject = clientUtil(window);
 /**
  * 插件默认值
  */
@@ -610,7 +610,11 @@ Dialog.prototype = {
         self.isHided = true;
         self.settings.onBeforeClosed();
         self.jdz_dialog.addClass('dialog-close').removeClass('dialog-open');
-
+        if(!clientObject.animation){
+            //兼容IE9
+            self.removeDialog();    
+            console.info('ie9');
+        }
         if (self.tapBug) {
             self._appendTapOverlayer();
         }
@@ -622,6 +626,9 @@ Dialog.prototype = {
      */
     removeDialog: function () {
         var self = this;
+        if($(self.jdz_dialog).length==0){
+                return;
+        }
         self.jdz_dialogContent.html('');
         self.jdz_dialog.remove();
         self.isHided = false;
