@@ -1,7 +1,7 @@
 {
   "name": "joyconn-dialog",
   "version": "1.1.7",
-  "description": "兼容jquery或zepto的弹出层",
+  "description": "自适应pc、mobile的弹出层",
   "main": "index.js",
   "scripts": {
     "serve": "webpack-dev-server  --inline --hot --progress --colors --watch  --content-base . --open --open-page demo/demo.html",

@@ -1,4 +1,4 @@
-# JDialog
+# JoyDialog
 
 能够自适应pc、移动端的弹窗插件，包括常见的 alert、toast、notice 类型弹窗。
 
