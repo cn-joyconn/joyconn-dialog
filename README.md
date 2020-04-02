@@ -1,6 +1,6 @@
 # JDialog
 
-pc、移动端弹窗插件第二版，包括常见的 alert、toast、notice 类型弹窗。
+能够自适应pc、移动端的弹窗插件，包括常见的 alert、toast、notice 类型弹窗。
 
 ### 特性
 + 支持常见的 alert、toast、notice 类型弹窗
@@ -10,10 +10,14 @@ pc、移动端弹窗插件第二版，包括常见的 alert、toast、notice 类
 + 可扩展性强
 + 可自定义多个按钮
 
+### github
+https://github.com/cn-joyconn/joyconn-dialog
 
+### gitee
+https://gitee.com/EricZsp/joyconn-dialog
 
-
-
+###  演示地址
+https://cn-joyconn.github.io/joyconn-dialog/demo/demo.html
 
 
 ## 使用说明
