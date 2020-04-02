@@ -1,19 +1,24 @@
 import { dialogFunc } from './core.js';
 import "../css/dialog.css";
 import { clientUtil } from './util'
-var loading_dia;
+var loading_dia={
+    counter:0,
+    dia:null
+};
 JoyDialog.showLoading=function(){
-    if(!loading_dia){
+    loading_dia.counter++;
+    if(!loading_dia.dia){
         var jdia=JoyDialog({
             type : 'loading',
             infoText: '',
             autoClose:0
         });
-        loading_dia = jdia;
+        loading_dia.dia = jdia;
     }
 }
 JoyDialog.hideLoading=function(){
-    if(loading_dia){
+    loading_dia.counter--;
+    if(loading_dia.counter==0){
         loading_dia.close();
         loading_dia = null;        
     }
