@@ -289,3 +289,5 @@ npm run serve
  npm run build  
 ```
 
+## 参考资料
+https://github.com/sufangyu/dialog2
