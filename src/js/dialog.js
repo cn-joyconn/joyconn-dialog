@@ -1,5 +1,6 @@
 import { dialogFunc } from './core.js';
 import "../css/dialog.css";
+import { clientUtil } from './util'
 var loading_dia;
 JoyDialog.showLoading=function(){
     if(!loading_dia){
@@ -17,6 +18,7 @@ JoyDialog.hideLoading=function(){
         loading_dia = null;        
     }
 }
+JoyDialog.clientObject=JSON.parse(JSON.stringify(clientUtil(window)));
 export function JoyDialog(options){
    return dialogFunc(options)
 }

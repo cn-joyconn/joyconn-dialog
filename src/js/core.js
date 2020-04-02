@@ -210,7 +210,7 @@ Dialog.prototype = {
     _createDialogDOM: function (dialogType) {
         var self = this;
 
-        self.jdz_dialog = JDZepto('<div class="jdialog dialog-open ' + self.settings.dialogClass + '" data-style="' + self.dislogStyle + '"></div>');
+        self.jdz_dialog = JDZepto('<div class="JoyDialog dialog-open ' + self.settings.dialogClass + '" data-style="' + self.dislogStyle + '"></div>');
         self.jdz_dialogOverlay = JDZepto('<div class="dialog-overlay"></div>');
         self.jdz_dialogContent = JDZepto('<div class="dialog-content"></div>');
         self.jdz_dialogTitle = JDZepto('<div class="dialog-content-hd"><h3 class="dialog-content-title">' + self.settings.titleText + '</h3></div>');
@@ -371,7 +371,7 @@ Dialog.prototype = {
                     console.info("wind")
                     break;
                 case 'loading':
-                    iconfontValue = "icon-loading jdialog-loading-route-animation";
+                    iconfontValue = "icon-loading JoyDialog-loading-route-animation";
                     color = "#1296db";
                     console.info("loading")
                     break;

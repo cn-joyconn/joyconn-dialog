@@ -2,7 +2,7 @@
   border-color: transparent;
 }
 
-.jdialog {
+.JoyDialog {
   position: fixed;
   left: 0;
   top: 0;
@@ -12,7 +12,7 @@
   font-size: .75rem;
 }
 
-.jdialog .dialog-overlay {
+.JoyDialog .dialog-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -22,7 +22,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.jdialog .dialog-content {
+.JoyDialog .dialog-content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -35,7 +35,7 @@
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: .5rem;
 }
-.jdialog .dialog-content * {
+.JoyDialog .dialog-content * {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   margin: 0;
@@ -48,7 +48,7 @@
   font-size: 1rem;
 }
 
-.jdialog .dialog-btn, .dialog-btn-hl {
+.JoyDialog .dialog-btn, .dialog-btn-hl {
   position: relative;
   display: inline-block;
   height: 2.8rem;
@@ -60,22 +60,22 @@
   text-decoration: none;
   background-color: transparent;
 }
-.jdialog .dialog-btn:hover, .dialog-btn:active, .dialog-btn-hl:hover, .dialog-btn-hl:active {
+.JoyDialog .dialog-btn:hover, .dialog-btn:active, .dialog-btn-hl:hover, .dialog-btn-hl:active {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.jdialog .dialog-content-hd {
+.JoyDialog .dialog-content-hd {
   position: relative;
   padding: 1.4rem 1.4rem .8rem;
   margin-bottom:  -1.5rem;;
   text-align: center;
 }
-.jdialog .dialog-content-hd .dialog-content-title {
+.JoyDialog .dialog-content-hd .dialog-content-title {
   font-size: 1.13rem;
   font-weight: bold;
   color: #333;
 }
-.jdialog .dialog-content-hd .dialog-btn-close {
+.JoyDialog .dialog-content-hd .dialog-btn-close {
   display: block;
   width: 1.625rem;
   height:  1.625rem;
@@ -86,10 +86,10 @@
   cursor: pointer;
   background-color: transparent;
 }
-.jdialog .dialog-content-hd .dialog-btn-close span {
+.JoyDialog .dialog-content-hd .dialog-btn-close span {
   display: none;
 }
-.jdialog .dialog-content-hd .dialog-btn-close:before, .dialog-content-hd .dialog-btn-close:after {
+.JoyDialog .dialog-content-hd .dialog-btn-close:before, .dialog-content-hd .dialog-btn-close:after {
   content: "";
   display: block;
   width: 1.125rem;
@@ -99,39 +99,39 @@
   top: .8125rem;
   right: .175rem;
 }
-.jdialog .dialog-content-hd .dialog-btn-close:before {
+.JoyDialog .dialog-content-hd .dialog-btn-close:before {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
       transform: rotate(45deg);
 }
-.jdialog .dialog-content-hd .dialog-btn-close:after {
+.JoyDialog .dialog-content-hd .dialog-btn-close:after {
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
       transform: rotate(-45deg);
 }
 
-.jdialog .dialog-content-bd {
+.JoyDialog .dialog-content-bd {
   margin: 1.563rem 1.25rem;
   color: #000;
   text-align: center;
 }
-.jdialog .dialog-content-bd p {
+.JoyDialog .dialog-content-bd p {
   padding: .31rem 0;
 }
 
-.jdialog .content-scroll {
+.JoyDialog .content-scroll {
   overflow-y: auto;
   /* -webkit-overflow-scrolling: touch; */
 }
 
-.jdialog .dialog-content-ft {
+.JoyDialog .dialog-content-ft {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   position: relative;
   font-size: 0;
 }
-.jdialog .dialog-content-ft:after {
+.JoyDialog .dialog-content-ft:after {
   content: " ";
   position: absolute;
   left: 0;
@@ -147,13 +147,13 @@
   -ms-transform: scaleY(0.5);
       transform: scaleY(0.5);
 }
-.jdialog .dialog-content-ft .dialog-btn {
+.JoyDialog .dialog-content-ft .dialog-btn {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
   display: block;
 }
-.jdialog .dialog-content-ft .dialog-btn:after {
+.JoyDialog .dialog-content-ft .dialog-btn:after {
   content: "";
   position: absolute;
   left: 0;
@@ -169,31 +169,31 @@
   -ms-transform: scaleX(0.5);
       transform: scaleX(0.5);
 }
-.jdialog .dialog-content-ft .dialog-btn:first-child {
+.JoyDialog .dialog-content-ft .dialog-btn:first-child {
   border-bottom-left-radius: .5rem;
 }
-.jdialog .dialog-content-ft .dialog-btn:first-child:after {
+.JoyDialog .dialog-content-ft .dialog-btn:first-child:after {
   border-left: none;
 }
-.jdialog .dialog-content-ft .dialog-btn:last-child {
+.JoyDialog .dialog-content-ft .dialog-btn:last-child {
   border-bottom-right-radius: .5rem;
 }
 
-.jdialog .dialog-content-ft.stacked {
+.JoyDialog .dialog-content-ft.stacked {
   -webkit-flex-flow: column;
       -ms-flex-flow: column;
           flex-flow: column;
   display: block;
 }
-.jdialog .dialog-content-ft.stacked:after {
+.JoyDialog .dialog-content-ft.stacked:after {
   border: none;
 }
-.jdialog .dialog-content-ft.stacked .dialog-btn {
+.JoyDialog .dialog-content-ft.stacked .dialog-btn {
   position: relative;
   display: block;
   width: 100%;
 }
-.jdialog .dialog-content-ft.stacked .dialog-btn:after {
+.JoyDialog .dialog-content-ft.stacked .dialog-btn:after {
   content: "";
   position: absolute;
   left: 0;
@@ -210,30 +210,30 @@
       transform: scaleY(0.5);
 }
 
-.jdialog.dialog-open .dialog-content,
-.jdialog.dialog-open .dialog-overlay,
-.jdialog.dialog-close .dialog-content,
-.jdialog.dialog-close .dialog-overlay {
+.JoyDialog.dialog-open .dialog-content,
+.JoyDialog.dialog-open .dialog-overlay,
+.JoyDialog.dialog-close .dialog-content,
+.JoyDialog.dialog-close .dialog-overlay {
   -webkit-animation-duration: 0.25s;
   animation-duration: 0.25s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
 
-.jdialog.dialog-open .dialog-content {
+.JoyDialog.dialog-open .dialog-content {
   -webkit-animation-name: zoom-in;
   animation-name: zoom-in;
 }
-.jdialog.dialog-open .dialog-overlay {
+.JoyDialog.dialog-open .dialog-overlay {
   -webkit-animation-name: fade-in;
   animation-name: fade-in;
 }
 
-.jdialog.dialog-close .dialog-content {
+.JoyDialog.dialog-close .dialog-content {
   -webkit-animation-name: fade-out;
   animation-name: fade-out;
 }
-.jdialog.dialog-close .dialog-overlay {
+.JoyDialog.dialog-close .dialog-overlay {
   -webkit-animation-name: fade-out;
   animation-name: fade-out;
 }
@@ -241,35 +241,35 @@
 /**-------------------------
  *  pc style
  **------------------------*/
-[data-style=pc].jdialog .dialog-content {
+[data-style=pc].JoyDialog .dialog-content {
   box-sizing: content-box;
   border-radius: 0;
   background-color: white;
 }
-[data-style=pc].jdialog .dialog-content-hd {
+[data-style=pc].JoyDialog .dialog-content-hd {
   text-align: left;
   padding: .625rem 1.25rem ;
   margin-bottom: -.625rem;
   border-bottom: .0625rem solid #E5E5E5;
 }
-[data-style=pc].jdialog .dialog-content-hd .dialog-btn-close {
+[data-style=pc].JoyDialog .dialog-content-hd .dialog-btn-close {
   top: .625rem;
   right: .938rem;
 }
-[data-style=pc].jdialog .dialog-content-bd {
+[data-style=pc].JoyDialog .dialog-content-bd {
   margin: 1.563rem 1.25rem;
   text-align: left;
 }
-[data-style=pc].jdialog .dialog-content-ft {
+[data-style=pc].JoyDialog .dialog-content-ft {
   display: block;
   padding: .5rem;
   margin-top: -.625rem;
   text-align: right;
 }
-[data-style=pc].jdialog .dialog-content-ft:after {
+[data-style=pc].JoyDialog .dialog-content-ft:after {
   border: none;
 }
-[data-style=pc].jdialog .dialog-content-ft .dialog-btn {
+[data-style=pc].JoyDialog .dialog-content-ft .dialog-btn {
   display: inline-block;
   min-width: 3.75rem;
   height: 2.25rem;
@@ -284,19 +284,19 @@
   border:  .0625rem solid #E5E5E5; 
   border-radius:'10%';
 }
-[data-style=pc].jdialog .dialog-content-ft .dialog-btn:after {
+[data-style=pc].JoyDialog .dialog-content-ft .dialog-btn:after {
   border: none;
 }
-[data-style=pc].jdialog .dialog-content-ft .dialog-btn-confirm,
-[data-style=pc].jdialog .dialog-content-ft .dialog-btn-hl {
+[data-style=pc].JoyDialog .dialog-content-ft .dialog-btn-confirm,
+[data-style=pc].JoyDialog .dialog-content-ft .dialog-btn-hl {
   color: #00bbd3;
 }
-[data-style=pc].jdialog .dialog-content-ft.stacked .dialog-btn {
+[data-style=pc].JoyDialog .dialog-content-ft.stacked .dialog-btn {
   display: block;
   text-align: right;
   width: 100%;
 }
-[data-style=pc].jdialog .dialog-content-ft-border:before {
+[data-style=pc].JoyDialog .dialog-content-ft-border:before {
   content: "";
   position: absolute;
   left: 0;
@@ -312,7 +312,7 @@
   -ms-transform: scaleY(0.5);
       transform: scaleY(0.5);
 }
-[data-style=pc].jdialog .ripple {
+[data-style=pc].JoyDialog .ripple {
   border-radius: 99999px;
   pointer-events: none;
   position: absolute;
@@ -348,16 +348,16 @@
     opacity: 0;
   }
 }
-[data-style=pc].jdialog .dialog-open .dialog-content {
+[data-style=pc].JoyDialog .dialog-open .dialog-content {
   -webkit-animation-name: bounce-in-down;
   animation-name: bounce-in-down;
 }
-[data-style=pc].jdialog .dialog-open .dialog-overlay {
+[data-style=pc].JoyDialog .dialog-open .dialog-overlay {
   -webkit-animation-name: fade-in;
   animation-name: fade-in;
 }
 
-[data-style=pc].jdialog .dialog-close .dialog-content {
+[data-style=pc].JoyDialog .dialog-close .dialog-content {
   -webkit-animation-name: bounce-out-up;
   animation-name: bounce-out-up;
 }
@@ -367,17 +367,17 @@
 }
 
 /* toast */
-.jdialog.dialog-toast .dialog-overlay {
+.JoyDialog.dialog-toast .dialog-overlay {
   background-color: transparent;
 }
-.jdialog.dialog-toast .dialog-content {
+.JoyDialog.dialog-toast .dialog-content {
   width: 9.25rem;
   height: 9.25rem;
   border-radius: .625rem;
   background-color: rgba(0, 0, 0, 0.8);
   display: table;
 }
-.jdialog.dialog-toast .dialog-content-bd {
+.JoyDialog.dialog-toast .dialog-content-bd {
   margin: 0;
   padding: 0;
   font-size: 0;
@@ -388,16 +388,16 @@
   text-align: center;
   vertical-align: middle;
 }
-.jdialog.dialog-toast .dialog-content-bd p {
+.JoyDialog.dialog-toast .dialog-content-bd p {
   margin: 0;
   padding: 0;
 }
-.jdialog.dialog-toast .info-icon {
+.JoyDialog.dialog-toast .info-icon {
   width: 3.5rem;
   max-width: 3.5rem;
   font-size: 2.5rem;
 }
-.jdialog.dialog-toast .info-text {
+.JoyDialog.dialog-toast .info-text {
   display: block;
   width: 90%;
   margin: .6rem auto 0;
@@ -405,58 +405,58 @@
   color: #fff;
 }
 
-.jdialog.dialog-toast.dialog-open .dialog-content,
-.jdialog.dialog-toast.dialog-open .dialog-overlay {
+.JoyDialog.dialog-toast.dialog-open .dialog-content,
+.JoyDialog.dialog-toast.dialog-open .dialog-overlay {
   -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
 
-.jdialog.dialog-toast.dialog-close .dialog-content,
-.jdialog.dialog-toast.dialog-close .dialog-overlay {
+.JoyDialog.dialog-toast.dialog-close .dialog-content,
+.JoyDialog.dialog-toast.dialog-close .dialog-overlay {
   -webkit-animation-duration: 0.35s;
   animation-duration: 0.35s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
 
-.jdialog.dialog-toast.dialog-open .dialog-content {
+.JoyDialog.dialog-toast.dialog-open .dialog-content {
   -webkit-animation-name: fade-in;
   animation-name: fade-in;
 }
-.jdialog.dialog-toast.dialog-open .dialog-overlay {
+.JoyDialog.dialog-toast.dialog-open .dialog-overlay {
   -webkit-animation-name: fade-in;
   animation-name: fade-in;
 }
 
-.jdialog.dialog-toast.dialog-close .dialog-content {
+.JoyDialog.dialog-toast.dialog-close .dialog-content {
   -webkit-animation-name: fade-out;
   animation-name: fade-out;
 }
-.jdialog.dialog-toast.dialog-close .dialog-overlay {
+.JoyDialog.dialog-toast.dialog-close .dialog-overlay {
   -webkit-animation-name: fade-out;
   animation-name: fade-out;
 }
 
 /* notice */
-.jdialog.dialog-notice .dialog-overlay {
+.JoyDialog.dialog-notice .dialog-overlay {
   background-color: transparent;
 }
-.jdialog.dialog-notice .dialog-content {
+.JoyDialog.dialog-notice .dialog-content {
   display: table;
   width: auto;
   max-width: 85%;
   border-radius: .25rem;
   background-color: rgba(0, 0, 0, 0.8);
 }
-.jdialog.dialog-notice .dialog-content-bd {
+.JoyDialog.dialog-notice .dialog-content-bd {
   margin: 0;
   font-size: 0;
   padding: .625rem .938rem;
   line-height: normal;
 }
-.jdialog.dialog-notice .info-icon {
+.JoyDialog.dialog-notice .info-icon {
   width: 1rem;
   max-width: 1rem;
   margin: 0 .125rem;
@@ -464,7 +464,7 @@
   position: relative;
   top: -.0625rem;
 }
-.jdialog.dialog-notice .info-text {
+.JoyDialog.dialog-notice .info-text {
   margin: 0 .125rem;
   font-size: .875rem;
   color: #fff;
@@ -472,23 +472,23 @@
   vertical-align: middle;
 }
 
-.jdialog.dialog-notice.dialog-open .dialog-content,
-.jdialog.dialog-notice.dialog-open .dialog-overlay {
+.JoyDialog.dialog-notice.dialog-open .dialog-content,
+.JoyDialog.dialog-notice.dialog-open .dialog-overlay {
   -webkit-animation-duration: 0.1s;
   animation-duration: 0.1s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
 
-.jdialog.dialog-notice.dialog-close .dialog-content,
-.jdialog.dialog-notice.dialog-close .dialog-overlay {
+.JoyDialog.dialog-notice.dialog-close .dialog-content,
+.JoyDialog.dialog-notice.dialog-close .dialog-overlay {
   -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
 
-.jdialog.dialog-notice.dialog-open .dialog-content {
+.JoyDialog.dialog-notice.dialog-open .dialog-content {
   -webkit-animation-name: fade-in;
   animation-name: fade-in;
 }
@@ -497,50 +497,50 @@
   animation-name: fade-in;
 }
 
-.jdialog.dialog-notice.dialog-close .dialog-content {
+.JoyDialog.dialog-notice.dialog-close .dialog-content {
   -webkit-animation-name: fade-out;
   animation-name: fade-out;
 }
-.jdialog.dialog-notice.dialog-close .dialog-overlay {
+.JoyDialog.dialog-notice.dialog-close .dialog-overlay {
   -webkit-animation-name: fade-out;
   animation-name: fade-out;
 }
-.jdialog.dialog-notice-top .dialog-content {
+.JoyDialog.dialog-notice-top .dialog-content {
   margin-top: 1.5rem;
   -webkit-transform: translate(-50%, -1.25rem);
   -ms-transform: translate(-50%, -1.25rem);
       transform: translate(-50%, -1.25rem);
 }
 
-.jdialog.dialog-notice-bottom .dialog-content {
+.JoyDialog.dialog-notice-bottom .dialog-content {
   top: auto;
   bottom: 0;
   -webkit-transform: translate(-50%, -1.25rem);
   -ms-transform: translate(-50%, -1.25rem);
       transform: translate(-50%, -1.25rem);
 }
-.jdialog.dialog-notice-top.dialog-open .dialog-content,
-.jdialog.dialog-notice-top.dialog-open .dialog-overlay,
-.jdialog.dialog-notice-top.dialog-close .dialog-content,
-.jdialog.dialog-notice-top.dialog-close .dialog-overlay,
-.jdialog.dialog-notice-bottom.dialog-open .dialog-content,
-.jdialog.dialog-notice-bottom.dialog-open .dialog-overlay,
-.jdialog.dialog-notice-bottom.dialog-close .dialog-content,
-.jdialog.dialog-notice-bottom.dialog-close .dialog-overlay {
+.JoyDialog.dialog-notice-top.dialog-open .dialog-content,
+.JoyDialog.dialog-notice-top.dialog-open .dialog-overlay,
+.JoyDialog.dialog-notice-top.dialog-close .dialog-content,
+.JoyDialog.dialog-notice-top.dialog-close .dialog-overlay,
+.JoyDialog.dialog-notice-bottom.dialog-open .dialog-content,
+.JoyDialog.dialog-notice-bottom.dialog-open .dialog-overlay,
+.JoyDialog.dialog-notice-bottom.dialog-close .dialog-content,
+.JoyDialog.dialog-notice-bottom.dialog-close .dialog-overlay {
   -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
 
-.jdialog.dialog-notice-top.dialog-open .dialog-content,
-.jdialog.dialog-notice-bottom.dialog-open .dialog-content {
+.JoyDialog.dialog-notice-top.dialog-open .dialog-content,
+.JoyDialog.dialog-notice-bottom.dialog-open .dialog-content {
   -webkit-animation-name: bounce-in-up;
   animation-name: bounce-in-up;
 }
 
-.jdialog.dialog-notice-top.dialog-close .dialog-content,
-.jdialog.dialog-notice-bottom.dialog-close .dialog-content {
+.JoyDialog.dialog-notice-top.dialog-close .dialog-content,
+.JoyDialog.dialog-notice-bottom.dialog-close .dialog-content {
   -webkit-animation-name: fade-out;
   animation-name: fade-out;
 }
@@ -549,12 +549,12 @@
  *  meida query
  **------------------------*/
 @media screen and (min-width: 1023px) {
-  .jdialog .dialog-content {
+  .JoyDialog .dialog-content {
     width: 60%;
   }
 }
 @media screen and (min-width: 767px) {
-  .jdialog .dialog-content {
+  .JoyDialog .dialog-content {
     width: 60%;
   }
 }
@@ -731,19 +731,19 @@
     transform: translate(-50%, 0);
   }
 }
-.jdialog-loading-route-animation {
+.JoyDialog-loading-route-animation {
 
-  animation: jdialog-rotate-animation 2s linear infinite;
+  animation: JoyDialog-rotate-animation 2s linear infinite;
 
 }
-@keyframes jdialog-rotate-animation{
+@keyframes JoyDialog-rotate-animation{
   0%{transform:rotate(0deg);-webkit-transform:rotate(0deg);} 
   25%{transform:rotate(90deg);-webkit-transform:rotate(90deg);}
   50%{transform:rotate(180deg);-webkit-transform:rotate(180deg);}
   75%{transform:rotate(270deg);-webkit-transform:rotate(270deg);}
   100%{transform:rotate(360deg);-webkit-transform:rotate(360deg);} 
 }
-@-webkit-keyframes jdialog-rotate-animation{
+@-webkit-keyframes JoyDialog-rotate-animation{
   0%{-webkit-transform:rotate(0deg);} 
   25%{-webkit-transform:rotate(90deg);}
   50%{-webkit-transform:rotate(180deg);}
