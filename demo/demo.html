@@ -881,6 +881,27 @@ var jdia = JoyDialog({
                                 </div>
                             </div>
 
+                            <div class="example-item" id="lodingDemo">
+                                <h3 class="example-name">全局loading</h3>
+                                <div class="example-show">
+                                    <button  class="button button1" type="button">显示弹窗</button>
+                                </div>
+                                <div class="example-code">
+                                    <div class="hl-section">
+                                        <pre>
+                                            <code class="javascript">
+//全局唯一loading,多次调用不重叠
+JoyDialog.showLoading();
+//关闭loading
+setTimeout(function(){
+    JoyDialog.hideLoading();
+},5000)
+                                            </code>
+                                        </pre>
+                                    </div>
+                                </div>
+                            </div>
+
 
                         </div>
                     </div>
