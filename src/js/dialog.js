@@ -21,9 +21,9 @@ JoyDialog.showLoading=function(){
 }
 JoyDialog.hideLoading=function(){
     loading_dia.counter--;
-    if(loading_dia.counter<=0){
-        loading_dia.close();
-        loading_dia = null;        
+    if(loading_dia.dia&&loading_dia.counter<=0){
+        loading_dia.dia.close();
+        loading_dia.dia = null;        
     }
 }
 JoyDialog.clientObject=JSON.parse(JSON.stringify(clientUtil(window)));
