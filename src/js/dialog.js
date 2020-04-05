@@ -6,6 +6,9 @@ var loading_dia={
     dia:null
 };
 JoyDialog.showLoading=function(){
+    if(loading_dia.counter<0){
+        loading_dia.counter=0;
+    }
     loading_dia.counter++;
     if(!loading_dia.dia){
         var jdia=JoyDialog({
@@ -18,7 +21,7 @@ JoyDialog.showLoading=function(){
 }
 JoyDialog.hideLoading=function(){
     loading_dia.counter--;
-    if(loading_dia.counter==0){
+    if(loading_dia.counter<=0){
         loading_dia.close();
         loading_dia = null;        
     }
