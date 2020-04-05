@@ -19,6 +19,13 @@ https://gitee.com/EricZsp/joyconn-dialog
 ###  演示地址
 https://cn-joyconn.github.io/joyconn-dialog/demo/demo.html
 
+### 效果预览
+![avatar](https://cn-joyconn.github.io/joyconn-dialog/demo/image/demo1.png)
+![avatar](https://cn-joyconn.github.io/joyconn-dialog/demo/image/demo2.png)
+![avatar](https://cn-joyconn.github.io/joyconn-dialog/demo/image/demo3.png)
+![avatar](https://cn-joyconn.github.io/joyconn-dialog/demo/image/demo4.png)
+![avatar](https://cn-joyconn.github.io/joyconn-dialog/demo/image/demo5.png)
+
 
 ## 使用说明
 **1、script引入方式**
