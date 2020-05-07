@@ -29,6 +29,8 @@ var dialog_defaults = {
     autoClose: 0,         // 弹窗自动关闭的延迟时间(毫秒)。0: 不自动关闭; 大于0: 自动关闭弹窗的延迟时间
     overlayShow: true,      // 是否显示遮罩层
     overlayClose: false,     // 是否可以点击遮罩层关闭弹窗
+    width:'auto',// 宽度 自动auto、100px
+    height:'auto',// 高度 自动auto、100px
 
     buttonStyle: 'side',   // 按钮排版样式 [ side: 并排; stacked: 堆叠 ]
     buttonTextConfirm: '确定',   // 确定按钮文字
@@ -219,7 +221,12 @@ Dialog.prototype = {
         self.jdz_closeBtn = JDZepto('<div class="dialog-btn-close"><span>close</span></div>');
         self.jdz_confirmBtn = JDZepto('<button class="dialog-btn dialog-btn-confirm ' + self.settings.buttonClassConfirm + '">' + self.settings.buttonTextConfirm + '</button>');
         self.jdz_cancelBtn = JDZepto('<button class="dialog-btn dialog-btn-cancel ' + self.settings.buttonClassCancel + '">' + self.settings.buttonTextCancel + '</button>');
-
+        if(self.settings.width&&self.settings.width!='auto'){
+            self.jdz_dialogContent.width(self.settings.width);
+        }
+        if(self.settings.height&&self.settings.height!='auto'){
+            self.jdz_dialogContent.height(self.settings.height);
+        }
         switch (dialogType) {
             case 'alert':
                 self._createDialogAlertTypeDOM(self, dialogType);
@@ -645,7 +652,24 @@ Dialog.prototype = {
             self.closeDialog();
         }, self.settings.autoClose);
     },
+  /**
+     * 改变弹窗大小
+     */
+    resizeDialog: function (width,height) {
+        var self = this;
+        if(width&&width!='auto'){
+            self.jdz_dialogContent.width(width);
+        }else{
+            self.jdz_dialogContent.style.removeProperty('width')
 
+        }
+        if(height&&height!='auto'){
+            self.jdz_dialogContent.height(height);
+        }else{
+            self.jdz_dialogContent.style.removeProperty('height')
+        }
+       
+    },
     /**
      * 关闭弹窗
      */

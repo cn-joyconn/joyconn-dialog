@@ -131,6 +131,16 @@ $(document).on('click', '#btn-01', function() {
             <td>是否显示遮罩层</td>
         </tr>
         <tr>
+            <td>width</td>
+            <td>auto</td>
+            <td>宽度 自动auto、100px</td>
+        </tr>
+        <tr>
+            <td>height</td>
+            <td>auto</td>
+            <td>高度 自动auto、100px</td>
+        </tr>
+        <tr>
             <td>overlayClose</td>
             <td>false</td>
             <td>是否可以点击遮罩层关闭弹窗</td>
@@ -247,6 +257,7 @@ $(document).on('click', '#btn-01', function() {
 | 实例方法            | 说明  |
 | :--------       | :----  |
 |obj.close  |关闭对话框。<br />用法：dialogObj.close() |
+|obj.resizeDialog  |改变弹窗大小,参数：(高,宽)<br />用法：dialogObj.resizeDialog(100,100) |
 |obj.update | 更改弹窗内容 ( 图标以及提示文字 )<br />可传入参数：<br>content: 弹窗内容, 可以是HTML <br>                infoIcon: 弹窗提示图标<br>infoText: 弹窗提示文字<br>autoClose: 自动关闭的延迟时间<br>onBeforeClosed: 关闭前回调函数<br>onClosed: 关闭后回调函数  |
 
 | 静态方法            | 说明  |
