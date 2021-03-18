@@ -9,7 +9,7 @@
   z-index: 10001;
   width: 100%;
   height: 100%;
-  font-size: .75rem;
+  /* font-size: .75rem; */
 }
 
 .JoyDialog .dialog-overlay {
@@ -27,7 +27,7 @@
   top: 50%;
   left: 50%;
   z-index: 10003;
-  width: 90%;
+  width: 100%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
@@ -221,8 +221,8 @@
 }
 
 .JoyDialog.dialog-open .dialog-content {
-  -webkit-animation-name: zoom-in;
-  animation-name: zoom-in;
+  /* -webkit-animation-name: zoom-in;
+  animation-name: zoom-in; */
 }
 .JoyDialog.dialog-open .dialog-overlay {
   -webkit-animation-name: fade-in;
