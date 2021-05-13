@@ -17,14 +17,14 @@ https://github.com/cn-joyconn/joyconn-dialog
 https://gitee.com/EricZsp/joyconn-dialog
 
 ###  演示地址
-https://cn-joyconn.github.io/joyconn-dialog/demo/demo.html
+https://cn-joyconn.github.io/joyconn-dialog/doc/demo.html
 
 ### 效果预览
-![avatar](https://cn-joyconn.github.io/joyconn-dialog/demo/image/demo1.png)
-![avatar](https://cn-joyconn.github.io/joyconn-dialog/demo/image/demo2.png)
-![avatar](https://cn-joyconn.github.io/joyconn-dialog/demo/image/demo3.png)
-![avatar](https://cn-joyconn.github.io/joyconn-dialog/demo/image/demo4.png)
-![avatar](https://cn-joyconn.github.io/joyconn-dialog/demo/image/demo5.png)
+![avatar](https://cn-joyconn.github.io/joyconn-dialog/public/image/demo1.png)
+![avatar](https://cn-joyconn.github.io/joyconn-dialog/public/image/demo2.png)
+![avatar](https://cn-joyconn.github.io/joyconn-dialog/public/image/demo3.png)
+![avatar](https://cn-joyconn.github.io/joyconn-dialog/public/image/demo4.png)
+![avatar](https://cn-joyconn.github.io/joyconn-dialog/public/image/demo5.png)
 
 
 ## 使用说明

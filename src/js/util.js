@@ -50,9 +50,10 @@ export function clientUtil(window) {
 }
 
 export function ObjectAssign(target) {
+  var index,source,key;
   if (typeof Object.assign == 'function') {
-    for (var index = 1; index < arguments.length; index++) {
-      var source = arguments[index];
+    for ( index = 1; index < arguments.length; index++) {
+       source = arguments[index];
       if (source != null) {
         Object.assign(target, source);
       }
@@ -62,10 +63,10 @@ export function ObjectAssign(target) {
       throw new TypeError('Cannot convert undefined or null to object');
     }
     target = Object(target);
-    for (var index = 1; index < arguments.length; index++) {
-      var source = arguments[index];
+    for ( index = 1; index < arguments.length; index++) {
+       source = arguments[index];
       if (source != null) {
-        for (var key in source) {
+        for (key in source) {
           if (Object.prototype.hasOwnProperty.call(source, key)) {
             target[key] = source[key];
           }
@@ -77,28 +78,25 @@ export function ObjectAssign(target) {
 }
 
 function getSupportAnimation() {
-  var animation = false,
-    animationstring = 'animation',
-    keyframeprefix = '',
-    domPrefixes = 'Webkit Moz O ms Khtml'.split(' '),
-    pfx = '',
-    elm = document.createElement('div');
+  var animation = false;
+  // var  animationstring = 'animation';
+  // var  keyframeprefix = '';
+  var  domPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+  // var  pfx = '';
+  var  elm = document.createElement('div');
 
   if (elm.style.animationName !== undefined) { animation = true; }
 
   if (animation === false) {
     for (var i = 0; i < domPrefixes.length; i++) {
       if (elm.style[domPrefixes[i] + 'AnimationName'] !== undefined) {
-        pfx = domPrefixes[i];
-        animationstring = pfx + 'Animation';
-        keyframeprefix = '-' + pfx.toLowerCase() + '-';
+        // pfx = domPrefixes[i];
+        // animationstring = pfx + 'Animation';
+        // keyframeprefix = '-' + pfx.toLowerCase() + '-';
         animation = true;
         break;
       }
     }
   }
-  // setTimeout(function(){
-  //   document.removeChild(elm);
-  // },10);
   return animation;
 }

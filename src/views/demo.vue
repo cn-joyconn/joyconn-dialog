@@ -1,20 +1,4 @@
-<!doctype html>
-<html lang="zh-cn">
-
-<head>
-    <meta charset="UTF-8">
-    <title>JoyDialog</title>
-    <link rel="stylesheet" href="../src/css/JoyDialog.css">
-    <link rel="stylesheet" href="../src/css/style.css">
-    <script src="../dist/JoyDialog.js"></script>
-    <script src="lib/highlight.js"></script>
-    <script src="lib/zepto.min.js"></script>
-    <script src="lib/marked.min.js"></script>
-
-
-</head>
-
-<body>
+<template>
     <div class="page">
         <div class="wrapper clearfix">
             <div class="sidebar">
@@ -43,7 +27,7 @@
                     <div class="panel">
                         <div class="panel-hd">使用说明</div>
                         <div class="panel-bd">
-
+                            <readme></readme>
                         </div>
                     </div>
                 </div>
@@ -59,7 +43,7 @@
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     content: '我是默认的弹窗。这里是提示信息内容'   
@@ -78,7 +62,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     titleText: '我是自定义标题',
@@ -98,7 +82,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     titleShow: false,
@@ -117,7 +101,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     autoClose: 2500,
@@ -136,7 +120,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     overlayClose: true,
@@ -155,7 +139,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     titleText: '发现新版本',
@@ -177,7 +161,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     content: '这里是弹窗的提示信息内容',
@@ -197,7 +181,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     closeBtnShow: true,
@@ -222,7 +206,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     content: '这里是弹窗的提示信息内容',
@@ -252,7 +236,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 var div=$('&lt;div&gt;按访问设备显示的弹窗风格，这里是弹窗的提示信息内容&lt;/div&gt;')
 var dia = JoyDialog({
@@ -276,7 +260,7 @@ setTimeout(function(){
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     style: 'pc',  //  default、pc、mobile
@@ -295,7 +279,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     style: 'mobile',  // default、pc、mobile
@@ -314,7 +298,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     titleText: '发现新版本',
@@ -354,7 +338,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     titleText: '发现新版本',
@@ -379,7 +363,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     titleText: '发现新版本',
@@ -405,7 +389,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     titleText: '发现新版本',
@@ -431,7 +415,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     titleText: '发现新版本',
@@ -457,7 +441,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     titleText: '发现新版本',
@@ -483,7 +467,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     titleText: '发现新版本',
@@ -509,7 +493,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     type : 'toast',
@@ -530,7 +514,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     type : 'toast',
@@ -550,7 +534,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 var jdia=JoyDialog({
     type : 'loading',
@@ -572,7 +556,7 @@ setTimeout(function(){
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     type : 'toast_success',
@@ -591,7 +575,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     type : 'toast_warning',
@@ -610,7 +594,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     type : 'toast_info',
@@ -629,7 +613,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     type : 'toast_error',
@@ -648,7 +632,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     type : 'toast_wind',
@@ -667,7 +651,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     type : 'toast_question',
@@ -686,7 +670,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     type : 'toast_busy',
@@ -705,7 +689,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     type : 'notice',
@@ -726,7 +710,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     type : 'notice',
@@ -747,7 +731,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     type : 'notice_info',
@@ -767,7 +751,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     type : 'notice_success',
@@ -787,7 +771,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     type : 'notice_warning',
@@ -807,7 +791,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     type : 'notice_error',
@@ -828,7 +812,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 JoyDialog({
     type : 'notice_error',
@@ -861,7 +845,7 @@ JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 var jdia = JoyDialog({
     closeBtnShow: true,
@@ -888,7 +872,7 @@ var jdia = JoyDialog({
                                 </div>
                                 <div class="example-code">
                                     <div class="hl-section">
-                                        <pre>
+                                        <pre v-highlightjs>
                                             <code class="javascript">
 //全局唯一loading,多次调用不重叠
 JoyDialog.showLoading();
@@ -909,23 +893,70 @@ setTimeout(function(){
             </div>
         </div>
     </div>
-    <script>
-        (function(){
-            hljs.initHighlightingOnLoad();
-            $.get('../README.md', function(response, status, xhr){
-                $("#instructions .panel-bd").html(marked(response));
-                $('#instructions table').attr('border',1).attr("cellspacing",0).css("border-collapse","collapse")
-            });
-            $('.button1').each(function(i,btn){
-                $(btn).click(function(){
-                    var code = $(btn).parents('.example-item').find('.example-code code').text();
-                    eval(code);
-                })
-            })
-            
-        })()
-        
-    </script>
-</body>
+</template>
 
-</html>
+<script>
+
+import $ from 'n-zepto';
+// import VueHighlightJS from 'vue-highlightjs'
+import showdown from 'showdown'
+import readme from '../../README.md'// 引入md文件
+import   '../css/dialog.css'
+import   '../css/style.css'
+
+export default {
+    data() {        
+        return {
+           
+        };
+    },
+    mounted() {
+        // VueHighlightJS.initHighlightingOnLoad();
+        // $.get('../README.md', function(response){
+        //     $("#instructions .panel-bd").html(marked(response));
+        //     $('#instructions table').attr('border',1).attr("cellspacing",0).css("border-collapse","collapse")
+        // });
+        $('.button1').each(function(i,btn){
+            $(btn).click(function(){
+                var code = $(btn).parents('.example-item').find('.example-code code').text();
+                eval(code);
+            })
+        })
+    },
+    components: {
+        readme
+    },
+    computed: {
+    },
+    beforeMount() {
+    },
+    beforeDestory() {
+    },
+    methods: {
+        // 使用md文件
+        md2html(md) {
+            let converter = new showdown.Converter();
+            let text = md.toString();
+            let html = converter.makeHtml(text);
+            return html
+        }
+
+    },
+};
+</script>
+
+<style lang="scss">
+/* markdown 高亮 */
+.hljs-name{
+    color: #22863a;
+}
+.hljs-attr{
+    color: #6f42c1;
+}
+.hljs-keyword{
+    color: red;
+}
+.hljs-string{
+    color: #032f62;
+}
+</style>

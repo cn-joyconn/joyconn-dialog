@@ -108,7 +108,7 @@ Dialog.prototype = {
         var self = this;
 
         // 确定按钮关闭弹窗
-        self.jdz_confirmBtn.on(clientObject.tapEvent, function (ev) {
+        self.jdz_confirmBtn.on(clientObject.tapEvent, function () {
             var callback = self.settings.onClickConfirmBtn();
             if (callback || callback === undefined) {
                 self.closeDialog();
@@ -123,14 +123,14 @@ Dialog.prototype = {
             }
         }
         // 取消按钮关闭弹窗
-        self.jdz_cancelBtn.on(clientObject.tapEvent, function (ev) {
+        self.jdz_cancelBtn.on(clientObject.tapEvent, function () {
             cancelCloseDialog();
         }).on('touchend', function (ev) {
             ev.preventDefault();
         });
 
         // 关闭按钮关闭弹窗
-        self.jdz_closeBtn.on(clientObject.tapEvent, function (ev) {
+        self.jdz_closeBtn.on(clientObject.tapEvent, function () {
             cancelCloseDialog()
         }).on('touchend', function (ev) {
             ev.preventDefault();
@@ -138,7 +138,7 @@ Dialog.prototype = {
 
         // 遮罩层关闭弹窗
         if (self.settings.overlayClose) {
-            JDZepto(document).on(clientObject.tapEvent, '.dialog-overlay', function (ev) {
+            JDZepto(document).on(clientObject.tapEvent, '.dialog-overlay', function () {
                 cancelCloseDialog()
             });
         }
@@ -282,7 +282,10 @@ Dialog.prototype = {
     _createDialogAlertTypeDOM:function(self, alertType){
         // 添加 alert 类型弹窗标识
         self.jdz_dialog.addClass('dialog-modal');
-
+        switch (alertType) {
+            case 'alert_error':                
+                break;
+        }
         // 显示遮罩层
         if (self.settings.overlayShow) {
             self.jdz_dialog.append(self.jdz_dialogOverlay);
@@ -536,35 +539,32 @@ Dialog.prototype = {
     _setNoticeContentMargin:function(){
         var positions=['top','center','bottom'];
         var height = 0;
-        var win_height = $(window).height();
+        var win_height = JDZepto(window).height();
         var total_height = 0;
         var max_width = 0;
-        $.each(positions,function(i,p){
+        JDZepto.each(positions,function(i,p){
             height=0;
             total_height = 0;
             max_width = 0;
-            var notice_dialogs=$('.dialog-notice-'+p);
+            var notice_dialogs=JDZepto('.dialog-notice-'+p);
             if(notice_dialogs.length>0){
-                $.each(notice_dialogs,function(j,d){
-                    total_height += $(d).find('.dialog-content').height() + (j==0?0:10);
-                    max_width = $(d).find('.dialog-content').width() > max_width? $(d).find('.dialog-content').width() :max_width;
-                    // if($(d).find('.dialog-overlay').length==0){
-                    //     $(d).height( $(d).find('.dialog-content').height())
-                    // }
+                JDZepto.each(notice_dialogs,function(j,d){
+                    total_height += JDZepto(d).find('.dialog-content').height() + (j==0?0:10);
+                    max_width = JDZepto(d).find('.dialog-content').width() > max_width? JDZepto(d).find('.dialog-content').width() :max_width;
                 })
                 if(p=="center"){
                     console.info("total_height",total_height)
                 }
-                $.each(notice_dialogs,function(j,d){
+                JDZepto.each(notice_dialogs,function(j,d){
                     if(p=='top'){
-                        $(d).find('.dialog-content').css('top',height+'px;')
+                        JDZepto(d).find('.dialog-content').css('top',height+'px;')
                     }else if(p=='bottom'){
-                        $(d).find('.dialog-content').css('bottom',height+'px;')
+                        JDZepto(d).find('.dialog-content').css('bottom',height+'px;')
                     }else if(p=='center'){
-                        $(d).find('.dialog-content').css('top', ((win_height-total_height)/2 + height)+'px;')
+                        JDZepto(d).find('.dialog-content').css('top', ((win_height-total_height)/2 + height)+'px;')
                     }
-                    // $(d).find('.dialog-content').width(max_width)//统一宽度，这个在IE下存在换行的bug。先搁置
-                    height += $(d).find('.dialog-content').height() + 10;
+                    // JDZepto(d).find('.dialog-content').width(max_width)//统一宽度，这个在IE下存在换行的bug。先搁置
+                    height += JDZepto(d).find('.dialog-content').height() + 10;
                 })
                
             }
@@ -598,7 +598,6 @@ Dialog.prototype = {
      * 有最大高度弹窗的提示内容滑动
      */
     _contentScrollEvent: function () {
-        var self = this;
 
         var isTouchDown = false;
         // 初始位置
@@ -695,7 +694,7 @@ Dialog.prototype = {
      */
     removeDialog: function () {
         var self = this;
-        if($(self.jdz_dialog).length==0){
+        if(JDZepto(self.jdz_dialog).length==0){
                 return;
         }
         self.jdz_dialogContent.html('');

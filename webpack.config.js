@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const webpack = require('webpack');
 module.exports = {
   mode: 'production',
-  entry: ['./index.js'],
+  entry: ['.src/index.js'],
   output: {
     path: path.resolve(__dirname, '.'),
     filename: './dist/JoyDialog.js',
@@ -70,7 +70,12 @@ module.exports = {
         test: /\.ts$/,
         use: ['babel-loader'],
         exclude: [path.resolve(__dirname, 'node_modules')]
-      }
+      }, 
+      {
+        test:/\.md$/,
+        loader:'vue-markdown-loader',
+        // options:vueMarkdown,
+      },
     ]
   },
   resolve: {
@@ -106,5 +111,5 @@ module.exports = {
     ]
   },
   
-  // devtool: "inline-source-map"
+  devtool: "inline-source-map"
 };
