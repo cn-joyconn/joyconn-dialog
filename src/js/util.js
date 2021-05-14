@@ -44,7 +44,7 @@ export function clientUtil(window) {
     platform: platform,
     // version: parseFloat(version),
     isSupportTouch: isSupportTouch,
-    tapEvent: isMobile && isSupportTouch ? 'tapEvent' : 'click',
+    tapEvent: isMobile && isSupportTouch ? 'tap' : 'click',
     animation:animation
   };
 }

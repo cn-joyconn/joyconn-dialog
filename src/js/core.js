@@ -9,7 +9,7 @@
 
 import "../iconfont/font_1723954_2i2jtntm4tj/iconfont.css";
 import "../css/dialog.css";
-import JDZepto from "n-zepto"
+import {zepto as JDZepto} from "joyconn-zepto"
 import { clientUtil,ObjectAssign } from './util'
 
 var clientObject = clientUtil(window);
@@ -113,7 +113,8 @@ Dialog.prototype = {
             if (callback || callback === undefined) {
                 self.closeDialog();
             }
-        }).on('touchend', function (ev) {
+        })
+        .on('touchend', function (ev) {
             ev.preventDefault();
         });
         function cancelCloseDialog() {
@@ -125,14 +126,16 @@ Dialog.prototype = {
         // 取消按钮关闭弹窗
         self.jdz_cancelBtn.on(clientObject.tapEvent, function () {
             cancelCloseDialog();
-        }).on('touchend', function (ev) {
+        })
+        .on('touchend', function (ev) {
             ev.preventDefault();
         });
 
         // 关闭按钮关闭弹窗
         self.jdz_closeBtn.on(clientObject.tapEvent, function () {
             cancelCloseDialog()
-        }).on('touchend', function (ev) {
+        })
+        .on('touchend', function (ev) {
             ev.preventDefault();
         });
 

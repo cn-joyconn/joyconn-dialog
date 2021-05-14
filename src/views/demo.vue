@@ -897,9 +897,8 @@ setTimeout(function(){
 
 <script>
 
-import $ from 'n-zepto';
+import {zepto as $} from "joyconn-zepto"
 // import VueHighlightJS from 'vue-highlightjs'
-import showdown from 'showdown'
 import readme from '../../README.md'// 引入md文件
 import   '../css/dialog.css'
 import   '../css/style.css'
@@ -933,14 +932,7 @@ export default {
     beforeDestory() {
     },
     methods: {
-        // 使用md文件
-        md2html(md) {
-            let converter = new showdown.Converter();
-            let text = md.toString();
-            let html = converter.makeHtml(text);
-            return html
-        }
-
+       
     },
 };
 </script>

@@ -9,7 +9,7 @@ Vue.config.productionTip = false
 
 
 import {JoyDialog} from './js/dialog.js';
-Vue.use(JoyDialog)
+window.JoyDialog=JoyDialog
 new Vue({
   router,
   render: h => h(App),
