@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const webpack = require('webpack');
 module.exports = {
   mode: 'production',
-  entry: ['.src/index.js'],
+  entry: ['./index.js'],
   output: {
     path: path.resolve(__dirname, '.'),
     filename: './dist/JoyDialog.js',
