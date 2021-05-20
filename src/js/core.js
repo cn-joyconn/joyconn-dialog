@@ -69,7 +69,7 @@ Dialog.prototype = {
     _init: function () {
         var self = this;
 
-        console.log('初始化弹窗');
+        // console.log('初始化弹窗');
 
         clearTimeout(self.autoCloseTimer);
 
@@ -148,7 +148,7 @@ Dialog.prototype = {
 
         // 自动关闭弹窗
         if (self.settings.autoClose > 0) {
-            console.log(self.settings.autoClose / 1000 + '秒后, 自动关闭弹窗');
+            // console.log(self.settings.autoClose / 1000 + '秒后, 自动关闭弹窗');
             self._autoClose();
         }
 
@@ -277,7 +277,7 @@ Dialog.prototype = {
                 self._createDialogNoticeTypeDOM(self, dialogType);
                 break;
             default:
-                console.log('running default');
+                // console.log('running default');
                 break;
         }
     },

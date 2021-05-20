@@ -12,7 +12,7 @@ module.exports = {
   entry: ['./index.js'],
   output: {
     path: path.resolve(__dirname, '.'),
-    filename: './dist/JoyDialog.js',
+    filename: './dist/JoyDialog.dev.js',
     // library: 'MA',
     // libraryTarget: 'umd'
   },
@@ -87,7 +87,7 @@ module.exports = {
     // contentBase:  path.join(__dirname, "src/demo/demo.html"),
   },
   plugins: [
-    new ExtractTextPlugin({ filename: 'dist/JoyDialog.css', allChunks: false })
+    new ExtractTextPlugin({ filename: 'dist/JoyDialog.dev.css', allChunks: false })
     // , new HtmlWebpackPlugin({
     //   template: 'src/demo/demo.html',  // 输入文件
     //   filename: 'src/demo/demo.html',  // 输出文件
@@ -111,5 +111,5 @@ module.exports = {
     ]
   },
   
-  devtool: 'cheap-module-source-map',
+  devtool: 'cheap-module-eval-source-map',
 };
