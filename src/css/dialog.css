@@ -243,14 +243,19 @@
  **------------------------*/
 [data-style=pc].JoyDialog .dialog-content {
   box-sizing: content-box;
-  border-radius: 0;
+  border-radius: 0.5rem;
   background-color: white;
 }
 [data-style=pc].JoyDialog .dialog-content-hd {
   text-align: left;
   padding: .625rem 1.25rem ;
-  margin-bottom: -.625rem;
+  margin-bottom: -.5rem;
+  /* margin-top: -.5rem; */
   border-bottom: .0625rem solid #E5E5E5;
+}
+[data-style=pc].JoyDialog .dialog-content-hd .dialog-content-title {
+ 
+  margin: .5rem;
 }
 [data-style=pc].JoyDialog .dialog-content-hd .dialog-btn-close {
   top: .625rem;
