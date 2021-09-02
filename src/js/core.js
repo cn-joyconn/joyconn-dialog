@@ -355,36 +355,36 @@ Dialog.prototype = {
             var color = "#fff", infoBgColor = "rgba(0, 0, 0, 0.8);", infoColor = "fff";
             switch (toastType) {
                 case 'toast_error':
-                    iconfontValue = "icon-failure_toast";
+                    iconfontValue = "JDialog-icon-failure_toast";
                     color = "#d81e06";
                     break;
                 case 'toast_warning':
-                    iconfontValue = "icon-alert_toast";
+                    iconfontValue = "JDialog-icon-alert_toast";
                     color = "#f4ea2a";
                     break;
                 case 'toast_info':
-                    iconfontValue = "icon-info";
+                    iconfontValue = "JDialog-icon-info";
                     color = "#1296db";
                     break;
                 case 'toast_success':
-                    iconfontValue = "icon-success_toast";
+                    iconfontValue = "JDialog-icon-success_toast";
                     color = "#58b20f";
                     break;
                 case 'toast_question':
-                    iconfontValue = "icon-question";
+                    iconfontValue = "JDialog-icon-question";
                     color = "#13227a";
                     break;
                 case 'toast_busy':
-                    iconfontValue = "icon-busy_toast";
+                    iconfontValue = "JDialog-icon-busy_toast";
                     color = "#d81e06";
                     break;
                 case 'toast_wind':
-                    iconfontValue = "icon-windcontrol";
+                    iconfontValue = "JDialog-icon-windcontrol";
                     color = "#d81e06";
                     console.info("wind")
                     break;
                 case 'loading':
-                    iconfontValue = "icon-loading JoyDialog-loading-route-animation";
+                    iconfontValue = "JDialog-icon-loading JoyDialog-loading-route-animation";
                     color = "#1296db";
                     console.info("loading")
                     break;
@@ -455,25 +455,25 @@ Dialog.prototype = {
 
             switch (noticeType) {
                 case 'notice_error':
-                    iconfontValue = "icon-failure_toast";
+                    iconfontValue = "JDialog-icon-failure_toast";
                     color = "#d81e06";
                     infoColor = "#d81e06";
                     infoBgColor = "rgba(255, 130, 106, 0.6);";
                     break;
                 case 'notice_warning':
-                    iconfontValue = "icon-alert_toast";
+                    iconfontValue = "JDialog-icon-alert_toast";
                     color = "#DAA520";
                     infoColor = "#DAA520";
                     infoBgColor = "rgba(238,232,170, 0.6);";
                     break;
                 case 'notice_info':
-                    iconfontValue = "icon-info";
+                    iconfontValue = "JDialog-icon-info";
                     color = "#4682B4";
                     infoColor = "#4682B4";
                     infoBgColor = "rgba(175,238,238, 0.6);";
                     break;
                 case 'notice_success':
-                    iconfontValue = "icon-success_toast";
+                    iconfontValue = "JDialog-icon-success_toast";
                     color = "#58b20f";
                     infoColor = "#58b20f";
                     infoBgColor = "rgba(148, 248, 85, 0.6);";
