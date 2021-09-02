@@ -2,7 +2,7 @@
   "id": "1723954",
   "name": "joyconn-dialog",
   "font_family": "JDialog-icon",
-  "css_prefix_text": "icon-",
+  "css_prefix_text": "JDialog-icon-",
   "description": "",
   "glyphs": [
     {
