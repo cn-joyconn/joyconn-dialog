@@ -1,12 +1,9 @@
-var webpack = require("webpack")
-const path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-// import "babel-polyfill";
 
-// const webpack = require('webpack');
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+
 module.exports = {
   mode: 'production',
   entry: ['./index.js'],
@@ -18,40 +15,27 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader"
-        })
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2
-            }
-          },
-          'sass-loader',
-          'postcss-loader'
-        ]
-      },
-      {
-        test: /\.less$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2
-            }
-          },
-          'less-loader',
-          'postcss-loader'
-        ]
+        {
+          //匹配哪些文件
+          test: /\.css$/,
+          //使用哪些loader进行处理
+          use:[
+            MiniCssExtractPlugin.loader,
+            'css-loader',
+          ]
+          // use:[
+          //     MiniCssExtractPlugin.loader,
+          //     'css-loader',
+          //     {
+          //         loader: "postcss-loader",
+          //         options:{
+          //             ident:'postcss',
+          //             plugins:()=>{
+          //                 require('postcss-preset-env')()
+          //             }
+          //         }
+          //     }
+          // ]
       },
       {
         test: /(iconfont.svg)|\.(woff|woff2|eot|ttf|otf)$/,
@@ -87,7 +71,10 @@ module.exports = {
     // contentBase:  path.join(__dirname, "src/demo/demo.html"),
   },
   plugins: [
-    new ExtractTextPlugin({ filename: 'dist/JoyDialog.dev.css', allChunks: false })
+    new MiniCssExtractPlugin({
+      filename: 'dist/JoyDialog.dev.css',
+    }),    
+    // new ExtractTextPlugin({ filename: 'dist/JoyDialog.css', allChunks: false })
     // , new HtmlWebpackPlugin({
     //   template: 'src/demo/demo.html',  // 输入文件
     //   filename: 'src/demo/demo.html',  // 输出文件
@@ -95,21 +82,11 @@ module.exports = {
     // ,new BundleAnalyzerPlugin({ analyzerPort: 8919 }) // 预览打包后的文件大小组成
   ],
   optimization: {
+    minimize: false, // 可省略，默认最优配置：生产环境，压缩 true。开发环境，不压缩 false
     minimizer: [
-      new UglifyJSPlugin({
-        uglifyOptions: {
-          output: {
-            comments: false
-          },
-          compress: {
-            warnings: false,
-            drop_debugger: true,
-            drop_console: true
-          }
-        }
-      }),
+      // new TerserPlugin()    , 
     ]
   },
   
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'cheap-module-source-map',
 };

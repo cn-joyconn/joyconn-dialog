@@ -1,8 +1,8 @@
 
 const path = require('path');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   mode: 'production',
@@ -74,7 +74,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'dist/JoyDialog.css',
     }),    
-    new MiniCssExtractPlugin()
     // new ExtractTextPlugin({ filename: 'dist/JoyDialog.css', allChunks: false })
     // , new HtmlWebpackPlugin({
     //   template: 'src/demo/demo.html',  // 输入文件
@@ -83,19 +82,9 @@ module.exports = {
     // ,new BundleAnalyzerPlugin({ analyzerPort: 8919 }) // 预览打包后的文件大小组成
   ],
   optimization: {
+    minimize: true, // 可省略，默认最优配置：生产环境，压缩 true。开发环境，不压缩 false
     minimizer: [
-      new UglifyJSPlugin({
-        uglifyOptions: {
-          output: {
-            comments: false
-          },
-          compress: {
-            warnings: false,
-            drop_debugger: true,
-            drop_console: true
-          }
-        }
-      }),      
+      new TerserPlugin()    , 
       new CssMinimizerPlugin(),
     ]
   },
