@@ -23,19 +23,6 @@ module.exports = {
             MiniCssExtractPlugin.loader,
             'css-loader',
           ]
-          // use:[
-          //     MiniCssExtractPlugin.loader,
-          //     'css-loader',
-          //     {
-          //         loader: "postcss-loader",
-          //         options:{
-          //             ident:'postcss',
-          //             plugins:()=>{
-          //                 require('postcss-preset-env')()
-          //             }
-          //         }
-          //     }
-          // ]
       },
       {
         test: /(iconfont.svg)|\.(woff|woff2|eot|ttf|otf)$/,

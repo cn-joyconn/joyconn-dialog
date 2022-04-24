@@ -105,11 +105,12 @@
   height: 2.8rem;
   line-height: 2rem;
   color: #007aff;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 400;
   cursor: pointer;
   text-decoration: none;
   background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.05);;
 }
 .JoyDialog .dialog-btn:hover, .dialog-btn:active, .dialog-btn-hl:hover, .dialog-btn-hl:active {
   background-color: rgba(0, 0, 0, 0.05);

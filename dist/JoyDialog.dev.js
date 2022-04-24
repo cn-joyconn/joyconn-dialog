@@ -2445,6 +2445,7 @@ var dialog_defaults = {
 function Dialog(options) {
     // var defaultOptions = JSON.parse(JSON.stringify(dialog_defaults))
     this.userOptions=options;
+    this.taping=false;//点击事件防止重复触发
     this.settings = ObjectAssign( {}, dialog_defaults, options);
 }
 Dialog.prototype = {
@@ -2494,10 +2495,14 @@ Dialog.prototype = {
 
         // 确定按钮关闭弹窗
         self.jdz_confirmBtn.on(clientObject.tapEvent, function () {
-            var callback = self.settings.onClickConfirmBtn();
-            if (callback || callback === undefined) {
-                self.closeDialog();
+            // ev.preventDefault();
+            if(self._canEval()){
+                var callback = self.settings.onClickConfirmBtn();
+                if (callback || callback === undefined) {
+                    self.closeDialog();
+                }
             }
+            
         })
         .on('touchend', function (ev) {
             ev.preventDefault();
@@ -2553,10 +2558,13 @@ Dialog.prototype = {
             joyconn_zepto_zepto.each(self.settings.buttons, function (index, item) {
                 self.jdz_dialogContentFt.children('button').eq(index).on(clientObject.tapEvent, function (ev) {
                     ev.preventDefault();
-                    var callback = item.callback();
-                    if (callback || callback === undefined) {
-                        self.closeDialog();
+                    if(self._canEval()){
+                        var callback = item.callback();
+                        if (callback || callback === undefined) {
+                            self.closeDialog();
+                        }
                     }
+                   
                 });
             });
         }
@@ -2592,7 +2600,19 @@ Dialog.prototype = {
         // }
 
     },
-
+    /**
+     * 按钮是否可以执行 （防止tap重复触发）
+     */
+    _canEval:function(){ 
+        var self = this;
+        if(!self.taping){            
+            // alert(self.taping)
+            self.taping=true
+            setTimeout(function(){self.taping=false},200)
+            return true
+        }
+        return false
+    },
     /**
      * 根据弹窗类型, 创建弹窗 DOM 结构
      * @param {string}  dialogType   弹窗类型
