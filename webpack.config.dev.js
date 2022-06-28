@@ -6,10 +6,11 @@ const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   mode: 'production',
+  // mode: 'development',
   entry: ['./index.js'],
   output: {
     path: path.resolve(__dirname, '.'),
-    filename: './dist/JoyDialog.dev.js',
+    filename: './dist/JoyDialog.js',
     // library: 'MA',
     // libraryTarget: 'umd'
   },

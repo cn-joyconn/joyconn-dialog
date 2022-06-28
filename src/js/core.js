@@ -623,6 +623,7 @@ Dialog.prototype = {
     _contentScrollEvent: function () {
 
         var isTouchDown = false;
+        var touchStartTime = 0;
         // 初始位置
         var position = {
             x: 0,
@@ -635,7 +636,7 @@ Dialog.prototype = {
         JDZepto(document)
             .on('touchstart mousedown', '.content-scroll', function (ev) {
                 var touch = ev.changedTouches ? ev.changedTouches[0] : ev;
-
+                touchStartTime=new Date().getTime()
                 isTouchDown = true;
                 position.x = touch.clientX;
                 position.y = touch.clientY;
@@ -658,7 +659,13 @@ Dialog.prototype = {
                 }
             })
             .on('touchend mouseup', '.content-scroll', function (ev) {
-                ev.preventDefault();
+                
+                var touchEndTime=new Date().getTime()
+                if(touchEndTime-touchStartTime<200){
+
+                }else{
+                    ev.preventDefault();
+                }
                 isTouchDown = false;
             });
 
