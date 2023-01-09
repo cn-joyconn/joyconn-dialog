@@ -5,7 +5,7 @@ var loading_dia={
     counter:0,
     dia:null
 };
-JoyDialog.showLoading=function(){
+JoyDialog.showLoading=function(msg){
     if(loading_dia.counter<0){
         loading_dia.counter=0;
     }
@@ -13,10 +13,12 @@ JoyDialog.showLoading=function(){
     if(!loading_dia.dia){
         var jdia=JoyDialog({
             type : 'loading',
-            infoText: '',
+            infoText: msg??'',
             autoClose:0
         });
         loading_dia.dia = jdia;
+    }else{
+        loading_dia.dia.update({infoText: msg??''})
     }
 }
 JoyDialog.hideLoading=function(){

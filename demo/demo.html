@@ -6,7 +6,8 @@
     <title>JoyDialog</title>
     <link rel="stylesheet" href="../src/css/dialog.css">
     <link rel="stylesheet" href="../src/css/style.css">
-    <script src="../dist/JoyDialog.dev.js"></script>
+    <script src="../dist/JoyDialog.js"></script>
+    <link rel="stylesheet" href="../dist/JoyDialog.css" />
     <script src="lib/highlight.js"></script>
     <script src="lib/zepto.min.js"></script>
     <script src="lib/marked.min.js"></script>
@@ -906,11 +907,16 @@ var jdia = JoyDialog({
                                         <pre>
                                             <code class="javascript">
 //全局唯一loading,多次调用不重叠
-JoyDialog.showLoading();
+JoyDialog.showLoading("正在加载");
+//关闭loading
+setTimeout(function(){
+    JoyDialog.showLoading("正在加载1");
+},1000)
 //关闭loading
 setTimeout(function(){
     JoyDialog.hideLoading();
-},5000)
+    JoyDialog.hideLoading();
+},50000)
                                             </code>
                                         </pre>
                                     </div>
