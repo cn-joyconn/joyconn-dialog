@@ -6,9 +6,6 @@
     "type": "git",
     "url": "https://gitee.com/EricZsp/joyconn-dialog.git"
   },
-  "publishConfig": {
-    "registry": "http://mvn.sdfy.joyconn.cn:10006/repository/npm-hosted/"
-  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "buildDoc": "vue-cli-service build",

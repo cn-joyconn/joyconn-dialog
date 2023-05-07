@@ -716,6 +716,9 @@ Dialog.prototype = {
         if (self.tapBug) {
             self._appendTapOverlayer();
         }
+        if (self.settings.bodyNoScroll) {
+            JDZepto('body').removeClass('body-no-scroll');
+        }
     },
 
     /**
