@@ -133,12 +133,12 @@ $(document).on('click', '#btn-01', function() {
         <tr>
             <td>width</td>
             <td>auto</td>
-            <td>宽度 自动auto、100px</td>
+            <td>宽度 自动auto、100(单位px)</td>
         </tr>
         <tr>
             <td>height</td>
             <td>auto</td>
-            <td>高度 自动auto、100px</td>
+            <td>高度 自动auto、100(单位px)</td>
         </tr>
         <tr>
             <td>overlayClose</td>
