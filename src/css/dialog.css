@@ -116,6 +116,10 @@
 .JoyDialog .dialog-content-bd {
   padding: 1.563rem 1.25rem;
   color: #000;
+  /* text-align: center; */
+}
+.JoyDialog.dialog-toast .dialog-content-bd,
+.JoyDialog.dialog-notice .dialog-content-bd {
   text-align: center;
 }
 .JoyDialog .dialog-content-bd p {
