@@ -1,3 +1,6 @@
+/*!******************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/iconfont/font_1723954_2i2jtntm4tj/iconfont.css ***!
+  \******************************************************************************************************/
 @font-face {
   font-family: "JDialog-icon"; /* Project id 1723954 */
   src: url(./iconfont/iconfont.eot); /* IE9 */
@@ -49,6 +52,9 @@
 }
 
 
+/*!**********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/dialog.css ***!
+  \**********************************************************************/
 ::-moz-focus-inner {
   border-color: transparent;
 }
@@ -83,7 +89,8 @@
   -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
   line-height: 1.5;
-  background-color: rgba(255, 255, 255, 0.95);
+  /* background-color: rgba(255, 255, 255, 0.95); */
+  background-color: rgb(245, 245, 245);
   border-radius: .5rem;
 }
 /* .JoyDialog .dialog-content * {
@@ -118,14 +125,15 @@
 
 .JoyDialog .dialog-content-hd {
   position: relative;
-  padding: 1.4rem 1.4rem .8rem;
-  margin-bottom:  -1.5rem;;
+  padding: .5rem;
+  /* margin-bottom:  -1.5rem;; */
   text-align: center;
 }
 .JoyDialog .dialog-content-hd .dialog-content-title {
-  font-size: 1.13rem;
+  font-size: 1.23rem;
   font-weight: bold;
   color: #333;
+  margin:0px;
 }
 .JoyDialog .dialog-content-hd .dialog-btn-close {
   display: block;
@@ -133,7 +141,7 @@
   height:  1.625rem;
   overflow: hidden;
   position: absolute;
-  top: 1.125rem;
+  top: 0.625rem;
   right: .938rem;
   cursor: pointer;
   background-color: transparent;
@@ -163,8 +171,12 @@
 }
 
 .JoyDialog .dialog-content-bd {
-  margin: 1.563rem 1.25rem;
+  padding: 1.563rem 1.25rem;
   color: #000;
+  /* text-align: center; */
+}
+.JoyDialog.dialog-toast .dialog-content-bd,
+.JoyDialog.dialog-notice .dialog-content-bd {
   text-align: center;
 }
 .JoyDialog .dialog-content-bd p {
@@ -307,20 +319,20 @@
 }
 [data-style=pc].JoyDialog .dialog-content-hd .dialog-content-title {
  
-  margin: .5rem;
+  padding: .5rem;
 }
 [data-style=pc].JoyDialog .dialog-content-hd .dialog-btn-close {
   top: .625rem;
   right: .938rem;
 }
 [data-style=pc].JoyDialog .dialog-content-bd {
-  margin: 1.563rem 1.25rem;
+  padding: 1.563rem 1.25rem;
   text-align: left;
 }
 [data-style=pc].JoyDialog .dialog-content-ft {
   display: block;
   padding: .5rem;
-  margin-top: -.625rem;
+  /* margin-top: -.625rem; */
   text-align: right;
 }
 [data-style=pc].JoyDialog .dialog-content-ft:after {
@@ -422,6 +434,7 @@
   -webkit-animation-name: fade-out;
   animation-name: fade-out;
 }
+
 
 /* toast */
 .JoyDialog.dialog-toast .dialog-overlay {
